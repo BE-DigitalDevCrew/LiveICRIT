@@ -18,19 +18,18 @@
             </div>
           </div>
           <div class="card-body">
-            <p class="text-uppercase text-sm"> SupportPlan Information</p>
+            <p class="text-uppercase text-sm text-center"> SupportPlan Information</p>
             <div class="row">
                 <div class="col-12">
                   <div class="card mb-4">
                     <div class="card-header pb-0">
-                      <h6>SupportPlan table</h6>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                       <div class="table-responsive p-0">
                         <table class="table">
                           <thead>
                               <tr>
-                                  <th>Created By</th>
+                                  <th>Staff Name</th>
                                   <th>Patient Name</th>
                                   <th>Communication Skills</th>
                                   <th>Friendships and Personal Relationships</th>
@@ -38,10 +37,11 @@
                                   <th>Routines And Personal Care</th>
                                   <th>Needs</th>
                                   <th>Emotions</th>
-                                  <th>Daily Driving Skills</th>
-                                  <th>General Health Skills</th>
+                                  <th>Daily Living Skills</th>
+                                  <th>General Health Needs</th>
                                   <th>Medication Support</th>
                                   <th>Recreation And Relations</th>
+                                  <th>Eating Drinking And Nutrition</th>
                                   <th>Psychological Support</th>
                                   <th>Finance</th>
                                   <th>Staff Email</th>

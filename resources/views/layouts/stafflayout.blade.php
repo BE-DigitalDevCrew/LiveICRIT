@@ -1,17 +1,3 @@
-<!--
-=========================================================
-* Argon Dashboard 2 - v2.0.4
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +22,6 @@
   <!-- CSS Files --> --}}
   <link id="pagestyle" href="{{asset('assets/css/argon-dashboard.css?v=2.0.4')}}" rel="stylesheet" />
 </head>
-
 <body class="g-sidenav-show bg-gray-100">
   <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/profile-layout-header.jpg'); background-position-y: 50%;">
     <span class="mask bg-primary opacity-6"></span>
@@ -89,10 +74,9 @@
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-app text-info text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">View EntryLists</span>
+            <span class="nav-link-text ms-1">View All Daily Entries</span>
           </a>
         </li>
-       
         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.addhospitalpassport')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -102,7 +86,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="">
+          <a class="nav-link " href="{{route('staff.viewhealthpassport')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-app text-info text-sm opacity-10"></i>
             </div>
@@ -140,6 +124,23 @@
               <i class="ni ni-app text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">View SupportPlans</span>
+          </a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link " href="{{route('staff.addsupportplan')}}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-app text-info text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Add Seizure Report</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{{route('staff.viewsupportplan')}}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-app text-info text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">View Seizure Reports</span>
           </a>
         </li>
         <li class="nav-item">
@@ -326,9 +327,7 @@
     </nav>
     <!-- End Navbar -->
    @yield('content')
-   
   </div>
-
   <!--   Core JS Files   -->
   <script src=" {{asset('assets/js/core/popper.min.js')}}"></script>
   <script src=" {{asset('assets/js/core/bootstrap.min.js ')}}"></script>

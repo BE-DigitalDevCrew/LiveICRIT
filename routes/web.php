@@ -70,6 +70,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/staff/addpatient', [UserController::class, 'storePatient'])->name('staff.addpatient');
         //ManageDailyEntries
         Route::get('/staff/addentryrecord', [UserController::class, 'addDailyEntry'])->name('staff.addentryrecord');
+        Route::get('/viewRecord/{id}', [UserController::class, 'viewRecordById'])->name('viewRecord')->middleware("auth");
         Route::post('/staff/addentryrecord', [UserController::class, 'storeEntryRecord'])->name('staff.addentryrecord');
         Route::get('/staff/viewentryrecords', [UserController::class, 'viewEntryRecord'])->name('staff.viewentryrecords');
         //Manage Hospital Passports
@@ -102,9 +103,8 @@ Route::middleware(['auth'])->group(function () {
           Route::get('/staff/addwitnessstatement', [UserController::class, 'addStatement'])->name('staff.addwitnessstatement');
           Route::post('/staff/addwitnessstatement', [UserController::class, 'storeStatement'])->name('staff.addwitnessstatement');
           Route::get('/staff/viewwitness', [UserController::class, 'viewWitnesses'])->name('staff.viewwitness');
-    
-      
         Route::get('/logout',[HomeController::class,'logout'])->name('logout');
+       
     });
 });
 

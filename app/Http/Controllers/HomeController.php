@@ -83,9 +83,10 @@ class HomeController extends Controller
     )
     ->orderBy('daily_entries.id', 'desc')
     ->paginate(5);  
+    $totalEntriesCount = $entries->total();
      //$entries = DB::select($query, ['userId' => $userId]);
      return view('staff.home', compact('entries'))->with("name", $username)
-     ->with("house", $house)->with("numberOfPatients",$numberOfPatientsInHouse)->with("currentDate",$currentDate);
+     ->with("house", $house)->with("numberOfPatients",$numberOfPatientsInHouse)->with("currentDate",$currentDate)->with("totalEntriesCount",$totalEntriesCount);
     }
 
 

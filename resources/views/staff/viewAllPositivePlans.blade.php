@@ -1,4 +1,4 @@
-hello world@extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
+@extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 @section('content')
 @include('layouts.navbars.auth.topnav', ['title' => 'Dashboard'])
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">

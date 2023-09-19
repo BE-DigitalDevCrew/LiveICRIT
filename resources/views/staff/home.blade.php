@@ -41,7 +41,7 @@
               <div class="numbers">
                 <p class="text-sm mb-0 text-uppercase font-weight-bold">DAILY ENTRIES</p>
                 <h5 class="font-weight-bolder">
-                  10
+                  {{$totalEntriesCount}}
                 </h5>
                 <p class="mb-0">
                   <span class="text-warning text-sm font-weight-bolder"> Available <br> entries</span>
@@ -221,7 +221,7 @@
             </div>
             <div class="col-4 text-end">
               <div class="icon icon-shape bg-gradient-warning shadow-success text-center rounded-circle">
-                <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                <i class="ni ni-paper-diploma text-lg opacitya-10" aria-hidden="true"></i>
               </div>
             </div>
           </div>
@@ -235,6 +235,7 @@
       <div class="card mb-4">
         <div class="card-header pb-0">
           <h4 style="margin-left: 40%">My Daily Entries</h4>
+          <a href="/staff/viewentryrecords" class="btn btn-dark">View All Daily Entries</a>
         </div>
         <div class="card-body px-0 pt-0 pb-2">
           <div class="table-responsive p-0">
@@ -267,8 +268,9 @@
                           <td>{{ $entry->appointments }}</td>
                           <td>{{ $entry->activities }}</td>
                           <td>{{ $entry->incident }}</td>
-                          <td>{{ $entry->incident }}</td>
-                              
+                          <td>
+                            <a href="{{ route('viewRecord', ['id' => $entry->id]) }}" class = "btn btn-dark">Export To Pdf</a>
+                        </td>              
                       </tr>
                   @endforeach
               </tbody>

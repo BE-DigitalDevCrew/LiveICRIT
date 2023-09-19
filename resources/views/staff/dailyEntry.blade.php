@@ -1,8 +1,21 @@
 @extends('layouts.stafflayout')
 @section('content')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="main-content position-relative max-height-vh-100 h-100">
   <!-- Navbar -->
- 
+  @if(Session::has('success'))
+  <script type="text/javascript">
+  function massge() {
+  Swal.fire(
+  'success',
+  'Daily Entry Added Successfully'
+      );
+      }
+      window.onload = massge;
+   </script>
+@endif
+</div>
   <!-- End Navbar -->
   <div class="card shadow-lg mx-4 card-profile-bottom">
     <a href="{{route('staff.viewentryrecords')}}" class="btn btn-primary btn-sm ms-auto">View Daily Entries</a>
@@ -17,7 +30,6 @@
                     <label for="date">Date</label>
                     <input type="date" name="date" id="date" class="form-control" required>
                 </div>
-
                 <div class="form-group">
                     <label for="shift">Shift</label>
                     <select name="shift" id="shift" class="form-control" required>

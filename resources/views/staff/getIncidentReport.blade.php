@@ -1,12 +1,24 @@
 @extends('layouts.stafflayout')
 @section('content')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="main-content position-relative max-height-vh-100 h-100">
   <!-- Navbar -->
- 
   <!-- End Navbar -->
   <div class="card shadow-lg mx-4 card-profile-bottom">
-    
   </div>
+     <!-- Navbar -->
+     @if(Session::has('success'))
+     <script type="text/javascript">
+     function massge() {
+     Swal.fire(
+     'success',
+     'Hospital Passport Added SUccessfully'
+         );
+         }
+         window.onload = massge;
+      </script>
+   @endif
   <div class="container-fluid py-4">
     <div class="row">
       <div class="col-md-12">

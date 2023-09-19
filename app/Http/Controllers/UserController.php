@@ -205,52 +205,6 @@ class UserController extends Controller
         $user->dailyEntries()->save($dailyEntry);
         //return back to the screen and use sweet alert to show that the data has been saved
         return back()->with('success', 'Daily Entry added successfully.');
-        
-        /*$validator = Validator::make($request->all(), [
-            'date' => 'required|date',
-            'shift' => 'required',
-            'patient_name' => 'required',
-            'personal_care' => 'required',
-            'medication_admin' => 'required', 
-            'activities' => 'required', 
-            'incident' => 'required',
-
-           
-        ],
-            [
-                'date.required'  => 'Username is required.',
-                'shift.required' => 'User email is required',
-                'patient_name.required' => 'User name is required',
-                'personal_care.required' => 'User address is required',
-                'medication_admin' => 'required|max:255',
-                'activities' => 'required|string|max:255',
-                'incident' => 'required|max:255',
-               
-            ]
-        );
-
-        if ($validator->fails()) {
-            
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-        
-       
-        $dailyEntry = DailyEntry::create([
-            'date'    => $request->input('date'),
-            'shift'           => $request->input('shift'),
-            'patient_name'      => $request->input('patient_name'),
-            'personal_care'         => $request->input('personal_care'),
-            'medication_admin'    => $request->input('medication_admin'),
-            'appointments'         => $request->input('appointments'),
-            'activities'         => $request->input('activities'),
-            'incident'  => $request->input('incident'),
-           
-        ]);
-    
-       
-        $dailyEntry->save();
-       
-        return redirect('staff/viewentryrecords/')->withSuccess('Record added Successfully');*/
     }
 
      //Manage Hospital Passport
@@ -323,7 +277,7 @@ class UserController extends Controller
             )
             ->orderBy('hospital_passports.id', 'desc')
             ->paginate(5);
-        return view("staff.viewAllHospitalPassports")->with("hospitalPassports",$hospitalPassports);
+            return view("staff.viewAllHospitalPassports")->with("hospitalPassports",$hospitalPassports);
         //return view('staff.allPassports', compact('passports'));
     }
 
@@ -331,18 +285,17 @@ class UserController extends Controller
     public function viewRecordById($id)
     {
     
-    $id = Auth::user()->id;
-    $entry = DailyEntry::join('users', 'daily_entries.user_id', '=', 'users.id')
-    ->join('patients', 'daily_entries.patient_id', '=', 'patients.id')
-    ->select(
-        'daily_entries.*', // Select all fields from the daily_entries table
-        'users.username as user_name',
-        'patients.patient_name'
-    )
-    ->where('daily_entries.id', $id)
-    ->first();
-    return view('pages.singleDailyEntry', ['entry' => $entry]);  
-    
+        $entry = DailyEntry::join('users', 'daily_entries.user_id', '=', 'users.id')
+        ->join('patients', 'daily_entries.patient_id', '=', 'patients.id')
+        ->select(
+            'daily_entries.*', // Select all fields from the daily_entries table
+            'users.username as user_name',
+            'patients.patient_name'
+        )
+        ->where('daily_entries.id', $id)
+        ->first();
+        return view('staff.singleDailyEntry', ['entry' => $entry]);  
+   
     }
 
     public function storePassport(Request $request){
@@ -449,9 +402,10 @@ class UserController extends Controller
          )
          ->orderBy('incident_reports.id', 'desc')
          ->paginate(5);
-        //$incident_reports  = DailyEntry::all();
         return view('staff.allIncidentReports', compact('entries'));
     }
+
+    
 
     public function storeIncReport(Request $request){
 
@@ -476,62 +430,22 @@ class UserController extends Controller
         //the user is associated with the daily entry. save a daily entry that is associated to the user
         $user->incidentReports()->save($incidentReport);
         //return back to the screen and use sweet alert to show that the data has been saved
-        return back()->with('success', 'Incident Report Saved');   
-
-
-        /*$validator = Validator::make($request->all(), [
-            'date' => 'required|date',
-            'shift' => 'required',
-            'patient_name' => 'required',
-            'personal_care' => 'required',
-            'medication_admin' => 'required', 
-            'activities' => 'required', 
-            'incident' => 'required',
-
-           
-        ],
-            [
-                'date.required'  => 'Username is required.',
-                'shift.required' => 'User email is required',
-                'patient_name.required' => 'User name is required',
-                'personal_care.required' => 'User address is required',
-                'medication_admin' => 'required|max:255',
-                'activities' => 'required|string|max:255',
-                'incident' => 'required|max:255',
-               
-            ]
-        );
-
-        if ($validator->fails()) {
-            
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-        
-       
-        $dailyEntry = DailyEntry::create([
-            'date'    => $request->input('date'),
-            'shift'           => $request->input('shift'),
-            'patient_name'      => $request->input('patient_name'),
-            'personal_care'         => $request->input('personal_care'),
-            'medication_admin'    => $request->input('medication_admin'),
-            'appointments'         => $request->input('appointments'),
-            'activities'         => $request->input('activities'),
-            'incident'  => $request->input('incident'),
-           
-        ]);
-    
-       
-        $dailyEntry->save();
-        return redirect('staff/viewentryrecords/')->withSuccess('Record added Successfully');*/
+        return back()->with('success', 'Incident Report Saved');
     }
 
 
      //Manage Hospital Passport
      public function addRiskAssement(){
-        $houses = Houses::all();
-        $patients = Patients::all();
-        $carers = User::all()->where('type','=','Staff');
-        return view('staff.getOperationsRiskAssessment',compact('houses','carers','patients'));
+        $house = Auth::user()->house_name;
+        $query = "
+                select * from patients where house = :house
+         ";
+        $patients = DB::select($query, ['house' => $house]);
+        return view('staff.getOperationsRiskAssessment')->with("patients",$patients);
+        //$houses = Houses::all();
+        //$patients = Patients::all();
+        //$carers = User::asupll()->where('type','=','Staff');
+        //return view('staff.getOperationsRiskAssessment',compact('houses','carers','patients'));
     }
 
     public function viewRiskAssessment(){
@@ -568,8 +482,7 @@ class UserController extends Controller
             
             return redirect()->back()->withErrors($validator)->withInput();
         }
-        
-       
+         
         $dailyEntry = DailyEntry::create([
             'date'    => $request->input('date'),
             'shift'           => $request->input('shift'),
@@ -593,8 +506,6 @@ class UserController extends Controller
                    select * from patients where house = :house
             ";
            $patients = DB::select($query, ['house' => $house]);
-           //dd($patients);
-           //return view('staff.getIncidentReport')->with("patients",$patients);
         return view('staff.getMySupportPlan')->with("patients",$patients);
     }
 
@@ -621,7 +532,6 @@ class UserController extends Controller
                 'my_support_plans.psychological_support', // Fillable field
                 'my_support_plans.finance', // Fillable field
                 'my_support_plans.staff_email', // Fillable field
-                'my_support_plans.created_at',
             )
             ->orderBy('my_support_plans.id', 'desc')
             ->paginate(5);
@@ -793,7 +703,4 @@ class UserController extends Controller
                     $dailyEntry->save();
                     return redirect('staff/viewcomplaintrecord/')->withSuccess('Record added Successfully');
                 }
-
-
-
-}
+            }
