@@ -119,10 +119,11 @@
 
                     <div class="col-md-12">
                        <select class="form-control" name="house_name" id="house_name">
-                        <option value="LORRAINE">LORRAINE</option>
-                        <option value="MARY">MARY</option>
+                        <option value="Lorraine">Lorraine</option>
+                        <option value="Hearten">Hearten</option>
+                        <option value="Wyresdale">Wyresdale</option>
+                        <option value="Oakdale">Oakdale</option>
                        </select>
-
                         @error('house_name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

@@ -64,9 +64,11 @@
                                 <span class="text-secondary text-xs font-weight-bold">{{$user->type}}</span>
                               </td>
                               <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold">{{$user->house_name}}</span>
+                                <span class="text-secondary text-xs font-weight-bold">{{$user->house}}</span>
                               </td>
-                             
+                              <td><a href="{{ route('admin.users.approve', $user->id) }}"
+                                class="btn btn-primary btn-sm">Approve</a>
+                              </td>
                               <td class="align-justified">
                                 <div class="row">
                                   <div class="col-md-6">

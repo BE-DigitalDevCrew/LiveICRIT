@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\JsonResponse;
+use DB;
 
 class HomeController extends Controller
 {
@@ -32,10 +33,12 @@ class HomeController extends Controller
 
     public function adminHome(): View
     {
-        // $total_nurses = DB::table('jobs')->where('job_name', '=','NURSE')->count();
-        // $total_care_givers = DB::table('jobs')->where('job_name', '=','MENTALHEALTH NURSES')->count();
-        // $total_drivers = DB::table('jobs')->where('job_name', '=','DRIVERS')->count();
-        // $total_support_workers = DB::table('jobs')->where('job_name', '=','SUPPORT WORKERS')->count();
+        $total_users = DB::table('users')->count();
+        $staff = DB::table('users')->where('type', '=','Staff');
+        $total_staff = DB::table('users')->where('type', '=','Staff')->count();
+        $total_houses = DB::table('houses')->count();
+        $total_daily_entries = DB::table('daily_entries')->count();
+        $total_patients = DB::table('patients')->count();
         // $total_carestaff = DB::table('jobs')->where('job_name', '=','CARE STAFF')->count();
         // $total_health_care_assistants = DB::table('jobs')->where('job_name', '=','HEALTH CARE ASSISTANTS')->count();
         // $total_therapists = DB::table('jobs')->where('job_name', '=','THERAPIST')->count();
@@ -44,7 +47,7 @@ class HomeController extends Controller
         // $total_midwives = DB::table('jobs')->where('job_name', '=','MIDWIVES')->count();
         // $total_categories = Categories::all()->count();
         $entries =  DailyEntry::all();
-        return view('super_admin.home',compact('entries'));
+        return view('super_admin.home',compact('entries','total_users','staff','total_staff','total_houses','total_daily_entries','total_patients'));
 
     } 
 

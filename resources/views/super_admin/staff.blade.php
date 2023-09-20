@@ -45,7 +45,7 @@
                             </tr>
                           </thead>
                           <tbody>
-                            @forelse($users as $user)
+                            @forelse($staff as $user)
                             <tr>
                               <td>
                                 <div class="d-flex px-2 py-1">

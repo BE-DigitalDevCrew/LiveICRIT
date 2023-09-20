@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Session;
 use App\Models\User;
 use App\Models\UserVerify;
+use App\Models\DailyEntry;
 use Hash;
 use Illuminate\Support\Str;
 use Mail;
@@ -131,8 +132,9 @@ class AuthController extends Controller
      */
     public function dashboard()
     {
+        $entries =  DailyEntry::all();
         if(Auth::check()){
-            return view('super_admin.home');
+            return view('super_admin.home',compact('entries'));
         }
 
         return redirect("login")->withSuccess('Opps! You do not have access');

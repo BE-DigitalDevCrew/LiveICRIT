@@ -7,6 +7,7 @@ use App\Events\NewUserCreated;
 use App\Models\Patients;
 use App\Models\Houses;
 use App\Models\DailyEntry;
+use App\Models\NewPatients;
 use Illuminate\Support\Facades\Validator;
 use Str;
 use Hash;
@@ -29,6 +30,22 @@ class UserController extends Controller
     public function viewUser(){
         $users  = User::all();
         return view('super_admin.viewusers', compact('users'));
+    }
+
+    public function viewStaff(){
+        $staff  = User::where('type','Staff')->get();
+        return view('super_admin.staff', compact('staff'));
+    }
+
+    public function viewEntryLists()
+    {
+        $patients = Patients::all();
+       return view('super_admin.viewEntries',compact('patients'));
+    }
+
+    public function approveUser(){
+        $users  = User::all();
+        return view('super_admin.approveusers', compact('users'));
     }
 
     public function storeUser(Request $request){

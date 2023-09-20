@@ -15,10 +15,10 @@ class AdminSeeder extends Seeder
     public function run()
     {
         \App\Models\User::create([
-            'name' => 'Admin',
-            'email' => 'admin@admin.com',
+            'username' => 'Admin',
+            'email' => 'munachaps@gmail.com',
             'type' =>'Admin',
-            'house_name' => 'Gold',
+            'house_name' => 'Hearten',
             'email_verified_at' => now(),
             'password' => bcrypt('verysafepassword'),
             'admin' => 1,

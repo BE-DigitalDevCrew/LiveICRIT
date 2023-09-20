@@ -30,62 +30,128 @@
                         <table class="table align-items-center mb-0">
                           <thead>
                             <tr>
-                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">House Name</th>
-                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Total Patients</th>
-      
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Capacity</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date Created</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
-                              <th class="text-secondary opacity-7"></th>
+                              <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">House Name
+                                <div class="d-flex px-2 py-1">
+                                  <div class="d-flex flex-column justify-content-center">
+                                    <h6 class="mb-0 text-sm">{{$total_lorraine->house_name}}</h6>
+                                  </div>
+                                </div>
+                              </td>
+                              <tr>
+                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Total Patients
+                                  <div class="d-flex px-2 py-1">
+                                    <div class="d-flex flex-column justify-content-center">
+                                      <h6 class="mb-0 text-sm">{{$total_lorraine_users}}</h6>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
                             </tr>
                           </thead>
                           <tbody>
-                            @foreach ($houses as $house)
-                            <tr>
-                              <td>
-                                <div class="d-flex px-2 py-1">
-                                  
-                                  <div class="d-flex flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm">{{$house->house_name}}</h6>
-                                  </div>
-                                </div>
-                              </td>
-                              <td>
-                                <p class="text-xs font-weight-bold mb-0">{{$total_patients}}</p>
-                                
-                              </td>
-                              <td class="align-middle text-center text-sm">
-                                <span class="text-secondary text-xs font-weight-bold">{{$house->capacity}}</span>
-                              </td>
-                            
-                              <td class="align-middle text-center">
-                                <span class="badge badge-sm bg-gradient-success">{{$house->is_active}}</span>
-                              </td>
-                              <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold">{{$house->created_at}}</span>
-                              </td>
-                              <td class="align-justified">
-                                <div class="row">
-                                  <div class="col-md-6">
-                                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                                      <i class="fa fa-edit"></i> Edit
-                                    </a>
-                                  </div>
-                                  <div class="col-md-6">
-                                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                                      <i class="fa fa-trash"></i> Remove
-                                    </a>
-                                  </div>
-                                </div>
-                              </td>
-                            </tr>
-                            @endforeach
-                            
+                         
                           </tbody>
                         </table>
                       </div>
                     </div>
+                    
+                  </div>
+                  <div class="card mb-4">
+                    <div class="card-body px-0 pt-0 pb-2">
+                      <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+                          <thead>
+                            <tr>
+                              <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">House Name
+                                <div class="d-flex px-2 py-1">
+                                  <div class="d-flex flex-column justify-content-center">
+                                    <h6 class="mb-0 text-sm">{{$total_hearten->house_name}}</h6>
+                                  </div>
+                                </div>
+                              </td>
+                              <tr>
+                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Total Patients
+                                  <div class="d-flex px-2 py-1">
+                                    <div class="d-flex flex-column justify-content-center">
+                                      <h6 class="mb-0 text-sm">{{$total_hearten_users}}</h6>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tr>
+                          </thead>
+                          <tbody>
+                         
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="card mb-4">
+                    <div class="card-body px-0 pt-0 pb-2">
+                      <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+                          <thead>
+                            <tr>
+                              <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">House Name
+                                <div class="d-flex px-2 py-1">
+                                  <div class="d-flex flex-column justify-content-center">
+                                    <h6 class="mb-0 text-sm">{{$total_oakdale->house_name}}</h6>
+                                  </div>
+                                </div>
+                              </td>
+                              <tr>
+                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Total Patients
+                                  <div class="d-flex px-2 py-1">
+                                    <div class="d-flex flex-column justify-content-center">
+                                      <h6 class="mb-0 text-sm">{{$total_oakdale_users}}</h6>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tr>
+                          </thead>
+                          <tbody>
+                         
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="card mb-4">
+                   
+                    <div class="card-body px-0 pt-0 pb-2">
+                      <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+                          <thead>
+                            <tr>
+                              <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">House Name
+                                <div class="d-flex px-2 py-1">
+                                  <div class="d-flex flex-column justify-content-center">
+                                    <h6 class="mb-0 text-sm">{{$total_wyresdale->house_name}}</h6>
+                                  </div>
+                                </div>
+                              </td>
+                              <tr>
+                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Total Patients
+                                  <div class="d-flex px-2 py-1">
+                                    <div class="d-flex flex-column justify-content-center">
+                                      <h6 class="mb-0 text-sm">{{$total_wyresdale_users}}</h6>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tr>
+                          </thead>
+                          <tbody>
+                         
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    
                   </div>
                 </div>
               </div>

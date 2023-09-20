@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HousesController;
+use App\Http\Controllers\PatientController;
 use App\Http\Controllers\UserController;
 
 
@@ -43,21 +45,21 @@ Route::middleware(['auth'])->group(function () {
         Route::middleware(['admin'])->group(function () {
         //Users
         Route::get('/admin/viewusers',[UserController::class,'viewUser'])->name('admin.viewusers');
+        Route::get('/admin/approveusers',[UserController::class,'approveUser'])->name('admin.approveusers');
         Route::get('/admin/addusers',[UserController::class,'addUser'])->name('admin.addusers');
-        Route::post('/admin/addusers',[UserController::class,'storeUser'])->name('admin.addusers');    
+        Route::post('/admin/addusers',[UserController::class,'storeUser'])->name('admin.addusers');  
+        Route::get('/admin/staff',[UserController::class,'viewStaff'])->name('admin.staff');   
         Route::get('/users', [UserController::class,'index'])->name('admin.users.index');
         //Patients
-        Route::get('/admin/viewpatients',[SuperAdminController::class,'viewPatient'])->name('admin.viewpatients');
-	    Route::get('/admin/addpatient',[SuperAdminController::class,'addPatient'])->name('admin.addpatient');
-	    Route::post('/admin/viewpatients',[SuperAdminController::class,'storePatient'])->name('admin.addpatient');
+        Route::get('/admin/viewpatients',[PatientController::class,'viewPatient'])->name('admin.viewpatients');
+	    Route::get('/admin/addpatient',[PatientController::class,'addPatient'])->name('admin.addpatient');
+	    Route::post('/admin/viewpatients',[PatientController::class,'storePatient'])->name('admin.addpatient');
 	    //Houses
 	    Route::get('/admin/addhouse',[HousesController::class,'addhouse'])->name('admin.addhouse');
 	    Route::get('/admin/viewhouses',[HousesController::class,'viewHouse'])->name('admin.viewhouses');
 	    Route::post('/admin/addhouse',[HousesController::class,'storeHouse'])->name('admin.addhouse');
 	   //EntryList
-	   Route::get('/admin/addentrylist',[SuperAdminController::class,'addEntryList'])->name('admin.addentrylist');
-	   Route::post('/admin/addentrylist',[SuperAdminController::class,'addEntryList'])->name('admin.addentrylist');
-	   Route::get('/admin/viewentrylist',[SuperAdminController::class,'viewEntryLists'])->name('admin.viewentrylist');
+	   Route::get('/admin/dailyentries',[UserController::class,'viewEntryLists'])->name('admin.dailyentries');
        Route::get('/users/{user_id}/approve', [UserController::class,'approve'])->name('admin.users.approve');
     });
     Route::middleware(['auth', 'user-access:staff'])->group(function () {
