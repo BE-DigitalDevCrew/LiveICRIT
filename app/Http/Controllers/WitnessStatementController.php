@@ -2,19 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\WitnessStatement;
+use App\Models\WitnessStatements;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\DB;
 
 class WitnessStatementController extends Controller
 {
-    /**
+  /**
      * Display a listing of the resource.
      */
     public function index()
     {
         //
+        $house = Auth::user()->house_name;
+        $query = "
+               select * from patients where house = :house
+        ";
+         // Execute the raw SQL query with the user ID parameter
+        $patients = DB::select($query, ['house' => $house]);
+        return view('staff.witnessStatement')->with("patients",$patients);
     }
 
     public function showWitnessStatement(){
@@ -22,7 +29,7 @@ class WitnessStatementController extends Controller
         return view("pages.witnessStatement");
     }
 
-    public function viewAllWitnessStatements(){
+    public function viewAllWitnessesStatements(){
 
         $statements = DB::table('witness_statements')
         ->join('users', 'witness_statements.user_id', '=', 'users.id')
@@ -48,7 +55,7 @@ class WitnessStatementController extends Controller
             'witness_statements.any_other_information',
         )
         ->get();
-        return view("pages.viewAllWitnessStatements")->with("statements",$statements);
+        return view("staff.viewAllWitnessStatements")->with("statements",$statements);
     
     }
 
@@ -87,7 +94,7 @@ class WitnessStatementController extends Controller
             'any_other_information' => 'required|string',
         ]);
 
-$complaintRecord = new WitnessStatement();
+$complaintRecord = new WitnessStatements();
 $complaintRecord->ref_number = $request->input('ref_number');
 $complaintRecord->injured_person = $request->input('injured_person');
 $complaintRecord->date_of_accident = $request->input('date_of_accident');

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\WitnessStatements;
+use App\Models\RiskAssessment;
 use Illuminate\Http\Request;
 
-class WitnessStatementsController extends Controller
+class RiskAssessmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class WitnessStatementsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(WitnessStatements $witnessStatements)
+    public function show(RiskAssessment $riskAssessment)
     {
         //
     }
@@ -42,7 +42,7 @@ class WitnessStatementsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(WitnessStatements $witnessStatements)
+    public function edit(RiskAssessment $riskAssessment)
     {
         //
     }
@@ -50,7 +50,7 @@ class WitnessStatementsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, WitnessStatements $witnessStatements)
+    public function update(Request $request, RiskAssessment $riskAssessment)
     {
         //
     }
@@ -58,7 +58,7 @@ class WitnessStatementsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(WitnessStatements $witnessStatements)
+    public function destroy(RiskAssessment $riskAssessment)
     {
         //
     }

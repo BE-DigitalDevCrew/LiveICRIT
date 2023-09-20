@@ -78,11 +78,11 @@ class User extends Authenticatable
 
     public function behaviouralCharts()
     {
-        return $this->hasMany(BehaviouralMonitorChart::class);
+        return $this->hasMany(BehaviouralMonitorCharts::class);
     }
     public function complaintsRecords()
     {
-        return $this->hasMany(complaintRecord::class);
+        return $this->hasMany(Complaints::class);
     }
 
     public function incidentReports()
@@ -121,7 +121,7 @@ public function fallsChecklists()
 
 public function witnessStatements()
 {
-    return $this->hasMany(WitnessStatement::class);
+    return $this->hasMany(WitnessStatements::class);
 }
 
 public function abcReports()

@@ -27,33 +27,54 @@
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                       <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0">
+                        <table class="table table-bordered">
                           <thead>
-                            <tr>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">User Name</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">House</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Patient Name</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Phone Number</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Address</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Street Address</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">City</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Country</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Relative Status</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Details Of Complaint</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Complaint Description</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Recorded By</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Injuries</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Complaint Date</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Position</th>
-                                <th  class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created At</th>
-                            </tr>
+                              <tr>
+                                  <th>User Name</th>
+                                  <th>House</th>
+                                  <th>Patient Name</th>
+                                  <th>Phone Number</th>
+                                  <th>Address</th>
+                                  <th>Email</th>
+                                  <th>Street Address</th>
+                                  <th>City</th>
+                                  <th>Country</th>
+                                  <th>Relative Status</th>
+                                  <th>Details Of Complaint</th>
+                                  <th>Complaint Description</th>
+                                  <th>Recorded By</th>
+                                  <th>Injuries</th>
+                                  <th>Complaint Date</th>
+                                  <th>Position</th>
+                                  <th>Created At</th>
+                              </tr>
                           </thead>
                           <tbody>
-                          
-                           
+                              @foreach ($complaintRecords as $record)
+                              <tr>
+                                  <td>{{ $record->user_name }}</td>
+                                  <td>{{ $record->house }}</td>
+                                  <td>{{ $record->patient_name }}</td>
+                                  <td>{{ $record->phone_number }}</td>
+                                  <td>{{ $record->address }}</td>
+                                  <td>{{ $record->email }}</td>
+                                  <td>{{ $record->street_address }}</td>
+                                  <td>{{ $record->city }}</td>
+                                  <td>{{ $record->country }}</td>
+                                  <td>{{ $record->relative_status }}</td>
+                                  <td>{{ $record->detailsOfComplaint }}</td>
+                                  <td>{{ $record->complaintDescription }}</td>
+                                  <td>{{ $record->recordedBy }}</td>
+                                  <td>{{ $record->injuries }}</td>
+                                  <td>{{ $record->complaintDate }}</td>
+                                  <td>{{ $record->position }}</td>
+                                  <td>{{ $record->created_at }}</td>
+                              </tr>
+                              @endforeach
                           </tbody>
-                        </table>
+                      </table>
+                                          </div>        
+                                          {{ $complaintRecords->links() }} <!-- Display pagination links -->
                       </div>
                     </div>
                   </div>

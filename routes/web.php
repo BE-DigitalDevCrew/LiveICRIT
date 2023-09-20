@@ -5,6 +5,11 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SeizureReportController;
+use App\Http\Controllers\ABCReportsController;
+use App\Http\Controllers\ComplaintsController;
+use App\Http\Controllers\WitnessStatementController;
+use App\Http\Controllers\BehaviouralMonitorChartsController;
 
 
 
@@ -84,6 +89,13 @@ Route::middleware(['auth'])->group(function () {
      Route::post('/staff/addincidencereport', [UserController::class, 'storeIncReport'])->name('staff.addincidencereport');
      Route::get('/staff/viewincidencereport', [UserController::class, 'viewIncReport'])->name('staff.viewincidencereport');
 
+
+       //manage behavioural monitor charts reports
+        //route for abc report
+	    Route::get('/staff/addbchart', [BehaviouralMonitorChartsController::class, 'index'])->name('staff.addbchart')->middleware('auth');
+	    Route::get('/staff/allbcharts', [BehaviouralMonitorChartsController::class, 'allBehaviouralSupportPlans'])->name('staff.allbcharts')->middleware('auth');
+	    Route::post('/staff/savebchart', [BehaviouralMonitorChartsController::class, 'store'])->name('staff.savebchart')->middleware('auth');
+
         //Manage SupportPlans
         Route::get('/staff/addsupportplan', [UserController::class, 'addSupportPlan'])->name('staff.addsupportplan');
         Route::post('/staff/addsupportplan', [UserController::class, 'storeSupportPlan'])->name('staff.addsupportplan');
@@ -95,16 +107,30 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/staff/viewriskassessment', [UserController::class, 'viewRiskAssessment'])->name('staff.viewriskassessment');
 
          //Manage Complaint Records
-         Route::get('/staff/addcomplaintrecord', [UserController::class, 'addComplaint'])->name('staff.addcomplaintrecord');
-         Route::post('/staff/addcomplaintrecord', [UserController::class, 'storeComplaint'])->name('staff.addcompaintrecord');
-         Route::get('/staff/viewcomplaintrecord', [UserController::class, 'viewComplaints'])->name('staff.viewcomplaintrecord');
+         Route::get('/staff/addcomplaintrecord', [ComplaintsController::class, 'index'])->name('staff.addcomplaintrecord');
+         Route::post('/staff/addcomplaintrecord', [ComplaintsController::class, 'store'])->name('staff.addcompaintrecord');
+         Route::get('/staff/viewcomplaintrecord', [ComplaintsController::class, 'allComplaintRecords'])->name('staff.viewcomplaintrecord');
 
-          //Manage Complaint Records
-          Route::get('/staff/addwitnessstatement', [UserController::class, 'addStatement'])->name('staff.addwitnessstatement');
-          Route::post('/staff/addwitnessstatement', [UserController::class, 'storeStatement'])->name('staff.addwitnessstatement');
-          Route::get('/staff/viewwitness', [UserController::class, 'viewWitnesses'])->name('staff.viewwitness');
-        Route::get('/logout',[HomeController::class,'logout'])->name('logout');
-       
-    });
+          //Manage Witness Statements
+          Route::get('/staff/addwitnessstatement', [WitnessStatementController::class, 'index'])->name('staff.addwitnessstatement');
+          Route::post('/staff/addwitnessstatement', [WitnessStatementController::class, 'store'])->name('staff.addwitnessstatement');
+          Route::get('/staff/viewwitness', [WitnessStatementController::class, 'viewAllWitnessesStatements'])->name('staff.viewwitness');
+          Route::get('/logout',[HomeController::class,'logout'])->name('logout');
+
+        //manage seizure reports 
+        Route::get('/staff/addseizurereport', [SeizureReportController::class, 'index'])->name('getSeizureReport')->middleware('auth');
+	    Route::post('/staff/saveSeizureReport', [SeizureReportController::class, 'store'])->name('saveSeizureReport')->middleware('auth');
+	    Route::get('staff/viewAllSeizureReports', [SeizureReportController::class, 'viewAllSeizureReports'])->name('viewAllSeizureReports')->middleware('auth');
+
+        //manage abc reports
+        //route for abc report
+	    Route::get('/getAbcReport', [ABCReportsController::class, 'index'])->name('getAbcReport')->middleware('auth');
+	    Route::get('/viewAllAbcReports', [ABCReportsController::class, 'allAbcReports'])->name('viewAllAbcReports')->middleware('auth');
+	    Route::post('/saveAbcReport', [ABCReportsController::class, 'store'])->name('save-abcReport');
+
+
+          
+
+        });
 });
 

@@ -31,7 +31,7 @@
             </div>
           </div>
           <div class="card-body">
-            <p class="text-uppercase text-sm">Daily Entry Information</p>
+            <p class="text-uppercase text-sm">Hospital Passport</p>
             <hr>
             <div class="row">
                 <form  action="{{route('staff.addhospitalpassport')}}" method="POST">

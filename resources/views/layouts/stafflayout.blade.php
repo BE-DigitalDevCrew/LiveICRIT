@@ -62,6 +62,54 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link " href="{{route('getAbcReport')}}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-app text-info text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Add Abc Report</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/getAbcReport">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-app text-info text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">View All Abc Reports</span>
+          </a>
+         </li>
+         <li class="nav-item">
+          <a class="nav-link " href="{{route('staff.addbchart')}}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-app text-info text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Add Behavioural Monitor Chart</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "href="{{route('staff.allbcharts')}}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-app text-info text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">View All  Reports</span>
+          </a>
+         </li>
+          <li class="nav-item">
+            <a class="nav-link " href={{route('staff.addcomplaintrecord')}}>
+              <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              </div>
+              <span class="nav-link-text ms-1"> Add Complaint Record</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="{{route('staff.viewcomplaintrecord')}}">
+              <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              </div>
+              <span class="nav-link-text ms-1"> View All Complaint Records</span>
+            </a>
+          </li>
+        <li class="nav-item">
           <a class="nav-link " href="{{route('staff.addentryrecord')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-app text-info text-sm opacity-10"></i>
@@ -128,7 +176,7 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link " href="{{route('staff.addsupportplan')}}">
+          <a class="nav-link " href="{{route('getSeizureReport')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-app text-info text-sm opacity-10"></i>
             </div>
@@ -136,7 +184,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{route('staff.viewsupportplan')}}">
+          <a class="nav-link " href="viewAllSeizureReports">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-app text-info text-sm opacity-10"></i>
             </div>
@@ -176,7 +224,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{route('staff.addcomplaintrecord')}}">
+          <a class="nav-link " href="{{route('staff.addwitnessstatement')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>
@@ -184,7 +232,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{route('staff.viewcomplaintrecord')}}">
+          <a class="nav-link " href="{{route('staff.viewwitness')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>

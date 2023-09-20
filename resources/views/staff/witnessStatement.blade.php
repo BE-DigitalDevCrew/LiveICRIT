@@ -1,57 +1,39 @@
-@extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
+@extends('layouts.stafflayout')
+@section('content')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-@section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Your Profile'])
-    <div class="card shadow-lg mx-4 card-profile-bottom">
-        <div class="card-body p-3">
-            <div class="row gx-4">
-                <div class="col-auto">
-                    <div class="avatar avatar-xl position-relative">
-                        <img src="/img/icritLogo.png" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
-                    </div>
-                </div>
-                <div class="col-auto my-auto">
-                    <div class="h-100">
-                        <h5 class="mb-1">
-                          Witness Statement
-                        </h5>
-                       
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="alert">
-        @include('components.alert')
-    </div>
+<div class="main-content position-relative max-height-vh-100 h-100">
+  <!-- Navbar -->
+  <!-- End Navbar -->
+  <div class="card shadow-lg mx-4 card-profile-bottom">
+    
+  </div>
+    <!-- Navbar -->
     @if(Session::has('success'))
     <script type="text/javascript">
     function massge() {
     Swal.fire(
-    'Success',
-    'Added Successfully'
+    'success',
+    'Witness Statement Saved'
         );
         }
         window.onload = massge;
-        </script>
-@endif
-    @if(Session::has('success'))
-                <script type="text/javascript">
-                function massge() {
-                Swal.fire(
-                'Success',
-                'Complaint Recorded Successfully'
-                    );
-                    }
-                    window.onload = massge;
-                    </script>
-    @endif
-    <div class="container-fluid py-4">
-        <div class="row">
-            <div class="col-md-12">
-            <div class="card">
-                <form method="POST" action="{{ route('saveWitnessStatement') }}">
+     </script>
+  @endif
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header pb-0">
+            <div class="d-flex align-items-center">
+              <p class="mb-0"></p>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="text-uppercase text-sm">Witness Statement</p>
+            <hr>
+            <div class="row">
+                <form method="POST" action="{{ route('staff.addwitnessstatement') }}">
                     @csrf
                         <div class="form-group row">
                             <label for="phone_number" class="col-md-2 col-form-label">Ref Number</label>
@@ -176,10 +158,28 @@
                         </div>
                         <button type="submit" class="btn btn-danger">Submit</button>
                     </form>
-                </div>
-                </div>
-            </div>
+          </div>
         </div>
-        @include('layouts.footers.auth.footer')
+      </div>
+      
     </div>
+    <footer class="footer pt-3  ">
+      <div class="container-fluid">
+        <div class="row align-items-center justify-content-lg-between">
+          <div class="col-lg-6 mb-lg-0 mb-4">
+            <div class="copyright text-center text-sm text-muted text-lg-start">
+              © <script>
+                document.write(new Date().getFullYear())
+              </script>,
+              Powered <i class="fa fa-heart"></i> by
+              <a href="" class="font-weight-bold" target="_blank">Digital Evangelicals</a>
+             
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
 @endsection

@@ -5,11 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Complaints extends Model
+class ComplaintRecord extends Model
 {
-    use HasFactory;
-
-    
     use HasFactory;use HasFactory;
 
     protected $fillable = [
@@ -41,4 +38,5 @@ class Complaints extends Model
 
 
 
+    
 }
