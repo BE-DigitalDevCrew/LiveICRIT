@@ -173,8 +173,23 @@
             </div>
             <span class="nav-link-text ms-1">View SupportPlans</span>
           </a>
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link " href="{{route('staff.selfcert')}}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-app text-info text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Add Self Certification Report</span>
+          </a>
         </li>
-        
+        <li class="nav-item">
+          <a class="nav-link " href="{{route('staff.allselfcert')}}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-app text-info text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">View All Reports</span>
+          </a>
+        </li>
         <li class="nav-item">
           <a class="nav-link " href="{{route('getSeizureReport')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -221,6 +236,23 @@
               <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1"> View Complaint Record</span>
+          </a>
+        </li>
+        <!--medication incident!-->
+        <li class="nav-item">
+          <a class="nav-link " href="{{route('staff.addcomplaintrecord')}}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1"> Add Medication Incident</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{{route('staff.viewcomplaintrecord')}}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1"> View Records</span>
           </a>
         </li>
         <li class="nav-item">

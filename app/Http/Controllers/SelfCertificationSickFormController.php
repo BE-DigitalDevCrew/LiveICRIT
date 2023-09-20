@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SelfCertificationSickForm;
+use App\Models\SelfSertification;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\DB;
@@ -17,37 +17,37 @@ class SelfCertificationSickFormController extends Controller
         //
           //retrieve the patients to the dashboard
         $house = Auth::user()->house;
-        return view('pages.getSelfCertificationSickForm');
+        return view('staff.getSelfCertificationSickForm');
         
     }
 
-    public function allSelfCertificationReports(){
+    public function allSelfCertificationSickForms(){
 
 
         // //get the authenticated users house
-        $house = Auth::user()->house;
+        $house = Auth::user()->house_name;
         //select the number of patients database that are based on the users house eg hearten
         $numberOfPatientsInHouse = DB::select("SELECT COUNT(*) AS count FROM patients WHERE house = ?", [$house]);           
         //each and every daily entry is going to display a staff name, patient details and daily entry records. the three tables are daily entry, users and patients. the left join joins the three tables and displays the data in the dashboard....
-        $reports = SelfCertificationSickForm::leftJoin('users', 'self_certification_sick_forms.user_id', '=', 'users.id')
-         ->where('users.house', $house)
+        $reports = SelfSertification::leftJoin('users', 'self_sertifications.user_id', '=', 'users.id')
+         ->where('users.house_name', $house)
         ->select(
         'users.username as user_name',
-        'self_certification_sick_forms.job_title',
-        'self_certification_sick_forms.service_department',
-        'self_certification_sick_forms.absence_date',
-        'self_certification_sick_forms.reason_of_absence',
-        'self_certification_sick_forms.absent_due_to_accident',
-        'self_certification_sick_forms.consulted_medical_practitioner',
-        'self_certification_sick_forms.medical_advice',
-        'self_certification_sick_forms.declaration',
-        'self_certification_sick_forms.declaration_name',
-        'self_certification_sick_forms.declaration_last_name',
-        'self_certification_sick_forms.declaration_date',
+        'self_sertifications.job_title',
+        'self_sertifications.service_department',
+        'self_sertifications.absence_date',
+        'self_sertifications.reason_of_absence',
+        'self_sertifications.absent_due_to_accident',
+        'self_sertifications.consulted_medical_practitioner',
+        'self_sertifications.medical_advice',
+        'self_sertifications.declaration',
+        'self_sertifications.declaration_name',
+        'self_sertifications.declaration_last_name',
+        'self_sertifications.declaration_date',
         )
-        ->orderBy('self_certification_sick_forms.id', 'desc') // Update the table alias here if needed
+        ->orderBy('self_sertifications.id', 'desc') // Update the table alias here if needed
         ->paginate(5);  
-        return view('pages.allSelfCertificationReports')->with("reports",$reports);
+        return view('staff.allSelfCertificationReports')->with("reports",$reports);
     }
 
     /**
@@ -79,7 +79,7 @@ class SelfCertificationSickFormController extends Controller
             'declaration_date' => 'required|date',
         ]);
 
-        $absence = new SelfCertificationSickForm();
+        $absence = new SelfSertification();
         $absence->job_title = $validatedData['job_title'];
         $absence->user_id = auth()->id();
         $absence->service_department = $validatedData['service_department'];

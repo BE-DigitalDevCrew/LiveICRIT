@@ -1,6 +1,5 @@
-@extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
+@extends('layouts.stafflayout')
 @section('content')
-@include('layouts.navbars.auth.topnav', ['title' => 'Dashboard'])
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>  
@@ -87,71 +86,33 @@ function generate() {
     });
 </script>
 </script>   
-<div class="container-fluid py-4">
+<div class="container-fluid py-4" style="margin-top: 100px;">
     <div class="row">
-        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+        <div class="col-xl-12 col-sm-6 mb-xl-0 mb-4">
             <div class="card">
                 <div class="card-body p-3">
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                               
-                               <hr>
-                              </div>
-                          
-                        </div>
-                        <div class="col-4 text-end">
-                            <div class="icon icon-user text-center rounded-circle">
-                                <i class="ni ni-single-02 text-lg opacity-10" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-4 col-sm-6">
-            <div class="card">
-                <div class="card-body p-3">
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="numbers">
-                              
-                                <a href = "viewMyProfile" class = "btn btn-info">View Your Profile</a>
-                                <a href = "viewMyPatients" class = "btn btn-danger">View Your Patients</a>
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Icrit</p>
                                 <h5 class="font-weight-bolder">
-                                </h5>
+                                <p class="mb-0">
+                                </p>
                             </div>
                         </div>
                         <div class="col-4 text-end">
-                            <div class="icon icon-s bg-building gradient-warning shadow-warning text-center rounded-circle">
-                                <i class="ni ni-briefcase-24 text-lg opacity-10" aria-hidden="true"></i>
+                            <div class="icon icon-shape bg-gradient-info shadow-primary text-center rounded-circle">
+                                <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
-            <div class="col-xl-4 col-sm-6">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <img src="./img/icritLogo.png" alt="main_logo" style="height:100px;">
-                                </div>
-                            </div>
-                            <div class="col-4 text-end"> 
-                                <a href="{{ route('allRecords') }}" class="btn btn-primary">View House Records</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
         </div>
     </div>
-</div>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/phpYC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <div class="container">
-    <a class="navbar-brand" class = "btn btn-info">Dashboard</a>
+    <hr>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -198,6 +159,7 @@ function generate() {
                         
                             {{ $reports->links() }} {{-- Pagination links --}}
                                     </div>
+                </div>
                 </div>
             </div>
         </div>
