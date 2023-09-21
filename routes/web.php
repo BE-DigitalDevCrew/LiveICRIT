@@ -16,6 +16,7 @@ use App\Http\Controllers\OperationRiskAssessmentController;
 use App\Http\Controllers\MedicationIncidentController;
 use App\Http\Controllers\PositiveBehaviourSupportPlanController;
 use App\Http\Controllers\FallsChecklistController;
+use App\Http\Controllers\ManualController;
 
 
 
@@ -163,6 +164,16 @@ Route::middleware(['auth'])->group(function () {
            Route::get('/staff/addfallschecklist', [FallsChecklistController::class, 'index'])->name('staff.addfallschecklist')->middleware('auth');
            Route::get('/staff/viewallfallschecklist', [FallsChecklistController::class, 'allFallsChecklists'])->name('staff.viewAllFallsChecklist')->middleware('auth');
            Route::post('staff/submitfallschecklist', [FallsChecklistController::class, 'store'])->name('staff.submitfallschecklist');
+           Route::get('/staff/viewmanual', [ManualController::class, 'index'])->name('staff.viewmanual')->middleware('auth');
+
+           Route::get('/download/{filename}', function ($filename) {
+           $path = public_path('downloads/' . $filename);
+            if (file_exists($path)) {
+                return response()->download($path, $filename);
+            } else {
+                abort(404, 'File not found');
+            }
+            })->name('downloadFile')->middleware("auth");
+        });
     });
-});
 

@@ -40,7 +40,7 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.home')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+              <i class="ni ni-shop text-primary text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Home</span>
           </a>
@@ -56,7 +56,7 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.viewpatients')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-app text-info text-sm opacity-10"></i>
+              <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">View Patients</span>
           </a>
@@ -72,7 +72,7 @@
         <li class="nav-item">
           <a class="nav-link " href="/getAbcReport">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-app text-info text-sm opacity-10"></i>
+              <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">View All Abc Reports</span>
           </a>
@@ -88,7 +88,7 @@
         <li class="nav-item">
           <a class="nav-link "href="{{route('staff.allbcharts')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-app text-info text-sm opacity-10"></i>
+              <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">View All  Reports</span>
           </a>
@@ -96,7 +96,7 @@
           <li class="nav-item">
             <a class="nav-link " href={{route('staff.addcomplaintrecord')}}>
               <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                <i class="ni ni-app text-info text-sm opacity-10"></i>
               </div>
               <span class="nav-link-text ms-1"> Add Complaint Record</span>
             </a>
@@ -104,7 +104,7 @@
           <li class="nav-item">
             <a class="nav-link " href="{{route('staff.viewcomplaintrecord')}}">
               <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
               </div>
               <span class="nav-link-text ms-1"> View All Complaint Records</span>
             </a>
@@ -120,7 +120,7 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.viewentryrecords')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-app text-info text-sm opacity-10"></i>
+              <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">View All Daily Entries</span>
           </a>
@@ -136,7 +136,7 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.viewhealthpassport')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-app text-info text-sm opacity-10"></i>
+              <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Hospital PassportList</span>
           </a>
@@ -152,7 +152,7 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.viewincidencereport')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-app text-info text-sm opacity-10"></i>
+              <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Incident Reports </span>
           </a>
@@ -169,7 +169,7 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.viewsupportplan')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-app text-info text-sm opacity-10"></i>
+              <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">View SupportPlans</span>
           </a>
@@ -185,7 +185,7 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.allselfcert')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-app text-info text-sm opacity-10"></i>
+              <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">View All Reports</span>
           </a>
@@ -201,7 +201,7 @@
         <li class="nav-item">
           <a class="nav-link " href="viewAllSeizureReports">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-app text-info text-sm opacity-10"></i>
+              <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">View Seizure Reports</span>
           </a>
@@ -209,7 +209,7 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.addosriskassess')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              <i class="ni ni-app text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1"> Add  Operation RiskAssessment</span>
           </a>
@@ -218,7 +218,7 @@
           
           <a class="nav-link " href="{{route('staff.viewallosriskassess')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1"> View All Reports</span>
           </a>
@@ -227,7 +227,7 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.addmedicationincident')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              <i class="ni ni-app text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1"> Add Medication Incident</span>
           </a>
@@ -235,7 +235,7 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.viewallmedicationincidents')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1"> View Records</span>
           </a>
@@ -244,7 +244,7 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.addpositivebehaviour')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              <i class="ni ni-app text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1"> Add Positive Behaviour Plan</span>
           </a>
@@ -252,7 +252,7 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.viewallpositivebehaviour')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1"> View All Records</span>
           </a>
@@ -262,7 +262,7 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.addfallschecklist')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              <i class="ni ni-app text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1"> Add Falls Checklist</span>
           </a>
@@ -270,7 +270,7 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.viewAllFallsChecklist')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1"> View All Records</span>
           </a>
@@ -278,7 +278,7 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.addwitnessstatement')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              <i class="ni ni-app text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1"> Add Witness Statement</span>
           </a>
@@ -286,9 +286,17 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.viewwitness')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1"> View Witness Statement</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{{route('staff.viewmanual')}}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1"> View And Download Our Manual</span>
           </a>
         </li>
         <li class="nav-item">
