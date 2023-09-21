@@ -15,7 +15,7 @@
     function massge() {
     Swal.fire(
     'success',
-    'Hospital Passport Added SUccessfully'
+    'Support Plan Added Successfully'
         );
         }
         window.onload = massge;

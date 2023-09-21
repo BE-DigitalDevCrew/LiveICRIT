@@ -12,6 +12,7 @@ use App\Http\Controllers\WitnessStatementController;
 use App\Http\Controllers\BehaviouralMonitorChartsController;
 use App\Http\Controllers\RiskAssessmentController;
 use App\Http\Controllers\SelfCertificationSickFormController;
+use App\Http\Controllers\OperationRiskAssessmentController;
 
 
 
@@ -138,6 +139,11 @@ Route::middleware(['auth'])->group(function () {
 	    Route::get('/getAbcReport', [ABCReportsController::class, 'index'])->name('getAbcReport')->middleware('auth');
 	    Route::get('/viewAllAbcReports', [ABCReportsController::class, 'allAbcReports'])->name('viewAllAbcReports')->middleware('auth');
 	    Route::post('/saveAbcReport', [ABCReportsController::class, 'store'])->name('save-abcReport');
+
+        //operation risk assessment controller
+        Route::get('/staff/addosriskassessment', [OperationRiskAssessmentController::class, 'index'])->name('staff.addosriskassess')->middleware('auth');
+	    Route::get('/staff/viewallosriskassess', [OperationRiskAssessmentController::class, 'allOperationRiskAssessments'])->name('staff.viewallosriskassess')->middleware('auth');
+	    Route::post('staff/submitosriskassessment', [OperationRiskAssessmentController::class, 'store'])->name('staff.submitosriskassessment');
        
     });
 });
