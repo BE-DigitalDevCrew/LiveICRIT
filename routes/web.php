@@ -13,6 +13,8 @@ use App\Http\Controllers\BehaviouralMonitorChartsController;
 use App\Http\Controllers\RiskAssessmentController;
 use App\Http\Controllers\SelfCertificationSickFormController;
 use App\Http\Controllers\OperationRiskAssessmentController;
+use App\Http\Controllers\MedicationIncidentController;
+use App\Http\Controllers\PositiveBehaviourSupportPlanController;
 
 
 
@@ -144,6 +146,17 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/staff/addosriskassessment', [OperationRiskAssessmentController::class, 'index'])->name('staff.addosriskassess')->middleware('auth');
 	    Route::get('/staff/viewallosriskassess', [OperationRiskAssessmentController::class, 'allOperationRiskAssessments'])->name('staff.viewallosriskassess')->middleware('auth');
 	    Route::post('staff/submitosriskassessment', [OperationRiskAssessmentController::class, 'store'])->name('staff.submitosriskassessment');
+
+          //medication incident report
+          Route::get('/staff/addmedicationincident', [MedicationIncidentController::class, 'index'])->name('staff.addmedicationincident')->middleware('auth');
+          Route::get('/staff/viewallmedicationincidents', [MedicationIncidentController::class, 'allMedicationInidentReports'])->name('staff.viewallmedicationincidents')->middleware('auth');
+          Route::post('staff/submitmedicationincident', [MedicationIncidentController::class, 'store'])->name('staff.submitmedicationincident');
+
+
+          //positive behaviour support plans
+           Route::get('/staff/addpositivebehaviour', [PositiveBehaviourSupportPlanController::class, 'index'])->name('staff.addpositivebehaviour')->middleware('auth');
+           Route::get('/staff/viewallpositivebehaviour', [PositiveBehaviourSupportPlanController::class, 'allPositiveBehaviourPlans'])->name('staff.viewallpositivebehaviour')->middleware('auth');
+           Route::post('staff/submitpositivebehaviour', [PositiveBehaviourSupportPlanController::class, 'store'])->name('staff.submitpositivebehaviour');
    
     });
 });

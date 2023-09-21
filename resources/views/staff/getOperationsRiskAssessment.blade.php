@@ -14,10 +14,10 @@
   function massge() {
   Swal.fire(
   'success',
-  'Support Plan Added Successfully'
-      );
-      }
-      window.onload = massge;
+  'Operation Risk Assessment Plan Added'
+   );
+   }
+   window.onload = massge;
    </script>
 @endif
   <div class="container-fluid py-4">

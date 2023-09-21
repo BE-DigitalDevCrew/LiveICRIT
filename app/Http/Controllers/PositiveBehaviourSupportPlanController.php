@@ -15,30 +15,30 @@ class PositiveBehaviourSupportPlanController extends Controller
     public function index()
     {
         //
-        $house = Auth::user()->house;
+        $house = Auth::user()->house_name;
         $query = "
                select * from patients where house = :house
         ";
          // Execute the raw SQL query with the user ID parameter
         $patients = DB::select($query, ['house' => $house]);
-        return view('pages.getPositiveBehaviourSupport')->with("patients",$patients);
+        return view('staff.getPositiveBehaviourSupport')->with("patients",$patients);
     }
 
-    public function viewAllPositivePlans(){
+    public function allPositiveBehaviourPlans(){
 
-        $usersHouse = Auth::user()->house;
+        $usersHouse = Auth::user()->house_name;
         $supportPlans = PositiveBehaviourSupportPlan::leftJoin('patients', 'positive_behaviour_support_plans.patient_id', '=', 'patients.id')
             ->leftJoin('users', 'positive_behaviour_support_plans.user_id', '=', 'users.id')
-            ->where('users.house', $usersHouse)
+            ->where('users.house_name', $usersHouse)
             ->select(
                 'users.username as user_name',
-                'users.house as house',
+                'users.house_name as house',
                 'patients.patient_name as patient_name',
                 'positive_behaviour_support_plans.*',
             )
             ->orderBy('positive_behaviour_support_plans.id', 'desc')
             ->paginate(5);
-            return view("pages.viewAllPositiveBehaviourCharts")->with("supportPlans",$supportPlans);
+            return view("staff.viewAllPositiveBehaviourCharts")->with("supportPlans",$supportPlans);
     }
     /**
      * Show the form for creating a new resource.

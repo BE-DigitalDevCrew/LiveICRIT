@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\MedicationIncident;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\JsonResponse;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+
 
 class MedicationIncidentController extends Controller
 {
     public function index()
     {
-        $house = Auth::user()->house;
+        $house = Auth::user()->house_name;
         //select all the patients from the table where the house is equal to the hous of the authenticated user
         $patients = DB::select('SELECT * FROM patients WHERE house = ?', [$house]);
         //collect all the patients from the database
@@ -17,15 +22,18 @@ class MedicationIncidentController extends Controller
         return view('staff.getMedicationIncident')->with("patients",$patients);
     }
 
-    public function viewAllMedicationIncident(){
+    public function allMedicationInidentReports(){
 
+
+        $houseName = Auth::user()->house_name;
         $medicationIncidents = MedicationIncident::select(
             'medication_incidents.*',  // Select all columns from the medication_incidents table
             'patients.patient_name',   // Select the patient_name column from the patients table
             'users.username AS user_name'  // Select the name column from the users table and alias it as user_name
         )
             ->join('patients', 'medication_incidents.patient_id', '=', 'patients.id') // Join with 
-            ->join('users', 'medication_incidents.user_id', '=', 'users.id') // Join with users table
+            ->join('users', 'medication_incidents.user_id', '=', 'users.id')
+            ->where('users.house_name', $houseName)
             ->get();
         return view("staff.viewAllMedicationIncident")->with("medicationIncidents",$medicationIncidents);
 
