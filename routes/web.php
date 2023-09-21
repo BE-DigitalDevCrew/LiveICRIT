@@ -141,7 +141,7 @@ Route::middleware(['auth'])->group(function () {
         //manage abc reports
         //route for abc report
 	    Route::get('/getAbcReport', [ABCReportsController::class, 'index'])->name('getAbcReport')->middleware('auth');
-	    Route::get('/viewAllAbcReports', [ABCReportsController::class, 'allAbcReports'])->name('viewAllAbcReports')->middleware('auth');
+	    Route::get('/viewAllAbcReports', [ABCReportsController::class, 'allAbcReports'])->name('staff.viewallabcreports')->middleware('auth');
 	    Route::post('/saveAbcReport', [ABCReportsController::class, 'store'])->name('save-abcReport');
 
         //opearation risk assessment forms

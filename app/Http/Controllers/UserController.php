@@ -109,7 +109,6 @@ class UserController extends Controller
     }
 
     public function viewPatients(){
-        //$patients  = Patients::all();
         $house_name = Auth::user()->house_name;
         $patients = DB::table('patients')
         ->where('house', $house_name)

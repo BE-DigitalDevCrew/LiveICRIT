@@ -45,20 +45,20 @@
             <span class="nav-link-text ms-1">Home</span>
           </a>
         </li>
-        <li class="nav-item">
+        <!--<li class="nav-item">
           <a class="nav-link " href="{{route('staff.addpatient')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-app text-info text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Add Patient</span>
           </a>
-        </li>
+        </li>!-->
         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.viewpatients')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">View Patients</span>
+            <span class="nav-link-text ms-1">View House Patients</span>
           </a>
         </li>
         <li class="nav-item">
@@ -70,7 +70,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="/getAbcReport">
+          <a class="nav-link "  href="{{route('staff.viewallabcreports')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
             </div>
