@@ -86,10 +86,6 @@ class OperationRiskAssessmentController extends Controller
     public function store(Request $request)
     {
 
-
-        //dd($request->all());
-
-
         /*$validatedData = $request->validate([
             'assessment_date' => 'required|date',
             'accessors_email_1' => 'required|email',

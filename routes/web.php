@@ -140,11 +140,11 @@ Route::middleware(['auth'])->group(function () {
 	    Route::get('/viewAllAbcReports', [ABCReportsController::class, 'allAbcReports'])->name('viewAllAbcReports')->middleware('auth');
 	    Route::post('/saveAbcReport', [ABCReportsController::class, 'store'])->name('save-abcReport');
 
-        //operation risk assessment controller
+        //opearation risk assessment forms
         Route::get('/staff/addosriskassessment', [OperationRiskAssessmentController::class, 'index'])->name('staff.addosriskassess')->middleware('auth');
 	    Route::get('/staff/viewallosriskassess', [OperationRiskAssessmentController::class, 'allOperationRiskAssessments'])->name('staff.viewallosriskassess')->middleware('auth');
 	    Route::post('staff/submitosriskassessment', [OperationRiskAssessmentController::class, 'store'])->name('staff.submitosriskassessment');
-       
+   
     });
 });
 
