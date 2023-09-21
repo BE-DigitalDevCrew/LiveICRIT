@@ -223,22 +223,6 @@
             <span class="nav-link-text ms-1"> View All Reports</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link " href="{{route('staff.addcomplaintrecord')}}">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1"> Add Complaint Record</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="{{route('staff.viewcomplaintrecord')}}">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1"> View Complaint Record</span>
-          </a>
-        </li>
         <!--medication incident!-->
         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.addmedicationincident')}}">
@@ -267,6 +251,24 @@
         </li>
         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.viewallpositivebehaviour')}}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1"> View All Records</span>
+          </a>
+        </li>
+        <!--falls checklist!-->
+        <!--positive behaviour support plan!-->
+        <li class="nav-item">
+          <a class="nav-link " href="{{route('staff.addfallschecklist')}}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1"> Add Falls Checklist</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{{route('staff.viewAllFallsChecklist')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>

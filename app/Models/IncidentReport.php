@@ -9,8 +9,6 @@ class IncidentReport extends Model
 {
     use HasFactory;
 
-    use HasFactory;
-
     protected $fillable = [
         'patient_id',
         'ref_number',

@@ -15,6 +15,7 @@ use App\Http\Controllers\SelfCertificationSickFormController;
 use App\Http\Controllers\OperationRiskAssessmentController;
 use App\Http\Controllers\MedicationIncidentController;
 use App\Http\Controllers\PositiveBehaviourSupportPlanController;
+use App\Http\Controllers\FallsChecklistController;
 
 
 
@@ -157,7 +158,11 @@ Route::middleware(['auth'])->group(function () {
            Route::get('/staff/addpositivebehaviour', [PositiveBehaviourSupportPlanController::class, 'index'])->name('staff.addpositivebehaviour')->middleware('auth');
            Route::get('/staff/viewallpositivebehaviour', [PositiveBehaviourSupportPlanController::class, 'allPositiveBehaviourPlans'])->name('staff.viewallpositivebehaviour')->middleware('auth');
            Route::post('staff/submitpositivebehaviour', [PositiveBehaviourSupportPlanController::class, 'store'])->name('staff.submitpositivebehaviour');
-   
+
+           //manage falls checklist
+           Route::get('/staff/addfallschecklist', [FallsChecklistController::class, 'index'])->name('staff.addfallschecklist')->middleware('auth');
+           Route::get('/staff/viewallfallschecklist', [FallsChecklistController::class, 'allFallsChecklists'])->name('staff.viewAllFallsChecklist')->middleware('auth');
+           Route::post('staff/submitfallschecklist', [FallsChecklistController::class, 'store'])->name('staff.submitfallschecklist');
     });
 });
 

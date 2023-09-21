@@ -9,7 +9,6 @@ class MedicationIncident extends Model
 {
     use HasFactory;
 
-    use HasFactory;
 
     protected $fillable = [
         'patient_id',
