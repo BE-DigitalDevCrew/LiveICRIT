@@ -14,7 +14,7 @@
     function massge() {
     Swal.fire(
     'success',
-    'Hospital Passport Added SUccessfully'
+    'Self Certification Sick Form Added'
         );
         }
         window.onload = massge;
