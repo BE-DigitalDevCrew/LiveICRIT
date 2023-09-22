@@ -11,7 +11,7 @@
         <div class="card">
           <div class="card-header pb-0">
             <div class="d-flex align-items-center">
-              <a href="{{route('staff.addentryrecord')}}" class="btn btn-primary btn-sm ms-auto">Add DailyEntry</a>
+              <!--<a href="{{route('staff.addentryrecord')}}" class="btn btn-primary btn-sm ms-auto">Add DailyEntry</a>!-->
             </div>
           </div>
           <div class="card-body">

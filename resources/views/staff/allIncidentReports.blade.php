@@ -14,16 +14,15 @@
           <div class="card-header pb-0">
             <div class="d-flex align-items-center">
              
-              <a href="{{route('staff.addincidencereport')}}" class="btn btn-primary btn-sm ms-auto">Add Incidence Report</a>
+              <!--<a href="{{route('staff.addincidencereport')}}" class="btn btn-primary btn-sm ms-auto">Add Incidence Report</a>!-->
             </div>
           </div>
           <div class="card-body">
-            <p class="text-uppercase text-sm">Incidence Information</p>
+            <p class="text-uppercase text-sm text-center">Incidence Reports</p>
             <div class="row">
                 <div class="col-12">
                   <div class="card mb-4">
                     <div class="card-header pb-0">
-                      <h6>Incidence Reports Table</h6>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                       <div class="table-responsive p-0">

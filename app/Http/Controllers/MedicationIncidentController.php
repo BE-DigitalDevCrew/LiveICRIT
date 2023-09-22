@@ -15,7 +15,7 @@ class MedicationIncidentController extends Controller
     public function index()
     {
         $house = Auth::user()->house_name;
-        //select all the patients from the table where the house is equal to the hous of the authenticated user
+        //select all the patients from the table where the house is equal to the house of the authenticated user
         $patients = DB::select('SELECT * FROM patients WHERE house = ?', [$house]);
         //collect all the patients from the database
         $patients = collect($patients);
@@ -36,8 +36,6 @@ class MedicationIncidentController extends Controller
             ->where('users.house_name', $houseName)
             ->get();
         return view("staff.viewAllMedicationIncident")->with("medicationIncidents",$medicationIncidents);
-
-
     }
 
     /**

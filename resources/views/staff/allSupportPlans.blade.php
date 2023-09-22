@@ -14,7 +14,7 @@
           <div class="card-header pb-0">
             <div class="d-flex align-items-center">
              
-              <a href="{{route('staff.addsupportplan')}}" class="btn btn-primary btn-sm ms-auto">Add Support Plan</a>
+              <!--<a href="{{route('staff.addsupportplan')}}" class="btn btn-primary btn-sm ms-auto">Add Support Plan</a>!-->
             </div>
           </div>
           <div class="card-body">

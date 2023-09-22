@@ -14,7 +14,7 @@
           <div class="card-header pb-0">
             <div class="d-flex align-items-center">
              
-              <a href="{{route('staff.addincidencereport')}}" class="btn btn-primary btn-sm ms-auto">View Complaint Records</a>
+              <!--<a href="{{route('staff.addincidencereport')}}" class="btn btn-primary btn-sm ms-auto">View Complaint Records</a>!-->
             </div>
           </div>
           <div class="card-body">
