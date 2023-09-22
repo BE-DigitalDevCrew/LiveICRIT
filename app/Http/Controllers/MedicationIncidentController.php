@@ -22,7 +22,7 @@ class MedicationIncidentController extends Controller
         return view('staff.getMedicationIncident')->with("patients",$patients);
     }
 
-    public function allMedicationInidentReports(){
+    public function allMedicationIncidentReports(){
 
 
         $houseName = Auth::user()->house_name;

@@ -27,7 +27,7 @@
           <div class="card-header pb-0">
             <div class="d-flex align-items-center">
               <p class="mb-0"></p>
-              <a href="{{route('staff.viewriskassessment')}}" class="btn btn-primary btn-sm ms-auto">View RiskAssessment Reports</a>
+              <a href="{{route('staff.viewallosriskassess')}}" class="btn btn-primary btn-sm ms-auto">View Operation RiskAssessment Reports</a>
             </div>
           </div>
           <div class="card-body">

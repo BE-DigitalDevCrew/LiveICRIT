@@ -28,6 +28,7 @@
           <div class="card-header pb-0">
             <div class="d-flex align-items-center">
               <p class="mb-0"></p>
+              <a href="{{route('staff.viewallpositivebehaviour')}}" class="btn btn-primary btn-sm ms-auto">View Positive Behaviour Support Plan</a>
               <!--<a href="{{route('staff.submitpositivebehaviour')}}" class="btn btn-primary btn-sm ms-auto">View Support Plans</a>!-->
             </div>
           </div>

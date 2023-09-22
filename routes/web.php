@@ -151,7 +151,7 @@ Route::middleware(['auth'])->group(function () {
 
           //medication incident report
           Route::get('/staff/addmedicationincident', [MedicationIncidentController::class, 'index'])->name('staff.addmedicationincident')->middleware('auth');
-          Route::get('/staff/viewallmedicationincidents', [MedicationIncidentController::class, 'allMedicationInidentReports'])->name('staff.viewallmedicationincidents')->middleware('auth');
+          Route::get('/staff/viewallmedicationincidents', [MedicationIncidentController::class, 'allMedicationIncidentReports'])->name('staff.viewallmedicationincidents')->middleware('auth');
           Route::post('staff/submitmedicationincident', [MedicationIncidentController::class, 'store'])->name('staff.submitmedicationincident');
 
 

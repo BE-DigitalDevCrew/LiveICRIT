@@ -27,10 +27,12 @@
           <div class="card-header pb-0">
             <div class="d-flex align-items-center">
               <p class="mb-0"></p>
+              <a href="{{ route('staff.viewwitness') }}" class="btn btn-primary btn-sm ms-auto">View Witness Statement Reports</a>
             </div>
           </div>
           <div class="card-body">
             <p class="text-uppercase text-sm">Witness Statement</p>
+            
             <hr>
             <div class="row">
                 <form method="POST" action="{{ route('staff.addwitnessstatement') }}">

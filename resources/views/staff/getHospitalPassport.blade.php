@@ -27,7 +27,7 @@
           <div class="card-header pb-0">
             <div class="d-flex align-items-center">
               <p class="mb-0"></p>
-              <!--<a href="{{route('staff.viewhealthpassport')}}" class="btn btn-primary btn-sm ms-auto">View HospitalPassports</a>!-->
+              <a href="{{route('staff.viewhealthpassport')}}" class="btn btn-primary btn-sm ms-auto">View HospitalPassports</a>
             </div>
           </div>
           <div class="card-body">

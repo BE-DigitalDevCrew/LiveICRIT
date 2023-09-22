@@ -15,7 +15,7 @@
           <div class="card-header pb-0">
             <div class="d-flex align-items-center">
               <p class="mb-0"></p>
-              
+              <a href="{{route('staff.viewcomplaintrecord')}}" class="btn btn-primary btn-sm ms-auto">View All Complaint Records</a>
             </div>
           </div>
           @if(Session::has('success'))
