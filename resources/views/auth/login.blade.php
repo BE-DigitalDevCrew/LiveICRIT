@@ -21,18 +21,18 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <title>
-        ICRIT - Your Digital Health Month
+        ICRIT - Your Digital HealthCare Partner
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
-    <link href=" {{asset('assets/css/nucleo-icons.css')}} " rel="stylesheet" />
-    <link href=" {{asset('assets/css/nucleo-svg.css')}}" rel="stylesheet" />
+    <link href="https://munanacreatives.co.zw/ICRIT/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="https://munanacreatives.co.zw/ICRIT/assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href=" {{asset('assets/css/nucleo-svg.css')}}" rel="stylesheet" />
+    <link href="https://munanacreatives.co.zw/ICRIT/assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
-    <link id="pagestyle" href=" {{asset('assets/css/argon-dashboard.css')}} " rel="stylesheet" />
+    <link id="pagestyle" href="https://munanacreatives.co.zw/ICRIT/assets/css/argon-dashboard.css" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -42,8 +42,8 @@
                 <!-- Navbar -->
                 <nav class="navbar navbar-expand-lg blur border-radius-lg top-0 z-index-3 shadow position-absolute mt-4 py-2 start-0 end-0 mx-4">
                     <div class="container-fluid">
-                        <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="/">
-                 ICRIT HealthCare
+                        <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="{{route('login')}}">
+                <img src="{{asset('assets/img/icritLogo.png')}}">
             </a>
                         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon mt-2">
@@ -131,9 +131,9 @@
                             </div>
                         </div>
                         <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
-                            <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('../img/careManagement.jpeg');
+                            <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('https://munanacreatives.co.zw/ICRIT/assets/img/careManagement.jpeg');
           background-size: cover;">
-                                <span class="mask bg-gradient-primary opacity-6"></span>
+                               
                                 <h4 class="mt-5 text-white font-weight-bolder position-relative"></h4>
                                 <p class="text-white position-relative"></p>
                             </div>
@@ -144,10 +144,10 @@
         </section>
     </main>
     <!--   Core JS Files   -->
-    <script src=" {{asset('assets/js/core/popper.min.js')}}"></script>
-    <script src=" {{asset('assets/js/core/bootstrap.min.js')}}"></script>
-    <script src="{{asset('assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
-    <script src=" {{asset('assets/js/plugins/smooth-scrollbar.min.js')}} "></script>
+    <script src="https://munanacreatives.co.zw/ICRIT/assets/js/core/popper.min.js"></script>
+    <script src="https://munanacreatives.co.zw/ICRIT/assets/js/core/bootstrap.min.js"></script>
+    <script src="https://munanacreatives.co.zw/ICRIT/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="https://munanacreatives.co.zw/ICRIT/assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -159,7 +159,7 @@
     </script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script src=" {{asset('assets/js/argon-dashboard.js')}} "></script>
+    <script src="https://munanacreatives.co.zw/ICRIT/assets/js/argon-dashboard.js"></script>
 </body>
 
 </html>

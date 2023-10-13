@@ -13,14 +13,20 @@ return new class extends Migration
     {
         Schema::create('daily_entries', function (Blueprint $table) {
             $table->id();
-            $table->string('date');
-            $table->string("shift");
-            $table->string("patient_name");
-            $table->string("personal_care");
-            $table->string("medication_admin");
-            $table->string("appointments");
-            $table->string("activities");
-            $table->string("incident");
+            $table->date('date');
+            $table->string('shift'); // Shift field
+            $table->string('patient_name');
+            $table->unsignedBigInteger('staff_id');
+            $table->unsignedBigInteger('patient_id');   
+            $table->string('personal_care'); // Personal Care field
+            $table->string('medication_admin'); // Medication Admin field
+            $table->string('appointments'); // Appointments field
+            $table->string('activities'); // Activities field
+            $table->string('incident'); // Incident field
+            $table->string('comments'); // Incident field
+            $table->foreign('staff_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade'); 
+            $table->string("prepared_by");
             $table->timestamps();
         });
     }

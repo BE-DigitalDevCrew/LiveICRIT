@@ -4,9 +4,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\HousesController;
-use App\Http\Controllers\PatientController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AbcReportsController;
+use App\Http\Controllers\HousesController;
+
 
 
 
@@ -44,16 +45,20 @@ Route::middleware(['auth'])->group(function () {
       
         Route::middleware(['admin'])->group(function () {
         //Users
-        Route::get('/admin/viewusers',[UserController::class,'viewUser'])->name('admin.viewusers');
+       Route::get('/admin/viewusers',[UserController::class,'viewUser'])->name('admin.viewusers');
         Route::get('/admin/approveusers',[UserController::class,'approveUser'])->name('admin.approveusers');
+        Route::get('/admin/approvedusers',[UserController::class,'approvedUsers'])->name('admin.approvedusers');
         Route::get('/admin/addusers',[UserController::class,'addUser'])->name('admin.addusers');
         Route::post('/admin/addusers',[UserController::class,'storeUser'])->name('admin.addusers');  
         Route::get('/admin/staff',[UserController::class,'viewStaff'])->name('admin.staff');   
         Route::get('/users', [UserController::class,'index'])->name('admin.users.index');
-        //Patients
-        Route::get('/admin/viewpatients',[PatientController::class,'viewPatient'])->name('admin.viewpatients');
-	    Route::get('/admin/addpatient',[PatientController::class,'addPatient'])->name('admin.addpatient');
-	    Route::post('/admin/viewpatients',[PatientController::class,'storePatient'])->name('admin.addpatient');
+        Route::get('/admin/addtostaff',[UserController::class,'addToClientStaff'])->name('admin.addtostaff');
+        Route::post('/admin/addtostaff',[UserController::class,'storeToClientStaff'])->name('admin.addtostaff');
+        Route::get('/admin/assignedstaff',[UserController::class,'storeToClientStaff'])->name('admin.assignedstaff');
+        // Clients
+        Route::get('/admin/viewclients',[UserController::class,'viewAdminPatients'])->name('admin.viewclients');
+	    Route::get('/admin/addclient',[UserController::class,'addPatient'])->name('admin.addclient');
+	    Route::post('/admin/addclient',[UserController::class,'storePatient'])->name('admin.addclient');
 	    //Houses
 	    Route::get('/admin/addhouse',[HousesController::class,'addhouse'])->name('admin.addhouse');
 	    Route::get('/admin/viewhouses',[HousesController::class,'viewHouse'])->name('admin.viewhouses');
@@ -61,6 +66,8 @@ Route::middleware(['auth'])->group(function () {
 	   //EntryList
 	   Route::get('/admin/dailyentries',[UserController::class,'viewEntryLists'])->name('admin.dailyentries');
        Route::get('/users/{user_id}/approve', [UserController::class,'approve'])->name('admin.users.approve');
+       //View Support Plans
+         Route::get('/admin/viewsupportplan', [UserController::class, 'viewAdminSupportPlan'])->name('admin.viewsupportplan');
     });
     Route::middleware(['auth', 'user-access:staff'])->group(function () {
         Route::get('/staff/home', [HomeController::class, 'staffHome'])->name('staff.home');
@@ -74,6 +81,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/staff/addentryrecord', [UserController::class, 'addDailyEntry'])->name('staff.addentryrecord');
         Route::post('/staff/addentryrecord', [UserController::class, 'storeEntryRecord'])->name('staff.addentryrecord');
         Route::get('/staff/viewentryrecords', [UserController::class, 'viewEntryRecord'])->name('staff.viewentryrecords');
+        Route::get('staff/view-record/{id}', [UserController::class, 'viewRecordById'])->name('staff.view-record')->middleware("auth");
+         
+        //Manage ABC Reports
+         Route::get('/staff/addabcreport', [ABCReportsController::class, 'index'])->name('staff.addabcreport');
+         Route::get('/staff/viewabcreports', [ABCReportsController::class, 'allAbcReports'])->name('staff.viewallabcreports');
+         Route::post('/staff/addabcreport', [ABCReportsController::class, 'store'])->name('staff.addabcreport');
+        
         //Manage Hospital Passports
         Route::get('/staff/addhospitalpassport', [UserController::class, 'addPassport'])->name('staff.addhospitalpassport');
         Route::post('/staff/addhospitalpassport', [UserController::class, 'storePassport'])->name('staff.addhospitalpassport');

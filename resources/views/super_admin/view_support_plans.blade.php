@@ -1,4 +1,4 @@
-@extends('layouts.stafflayout')
+@extends('layouts.adminlayout')
 @section('content')
 <div class="main-content position-relative max-height-vh-100 h-100">
   <!-- Navbar -->
@@ -14,43 +14,44 @@
           <div class="card-header pb-0">
             <div class="d-flex align-items-center">
              
-              <a href="{{route('staff.addsupportplan')}}" class="btn btn-primary btn-sm ms-auto">Add Support Plan</a>
+              <!--<a href="{{route('staff.addsupportplan')}}" class="btn btn-primary btn-sm ms-auto">Add Support Plan</a>!-->
             </div>
           </div>
           <div class="card-body">
-            <p class="text-uppercase text-sm"> SupportPlan Information</p>
+            <p class="text-uppercase text-sm text-center"> SupportPlan Information</p>
             <div class="row">
                 <div class="col-12">
                   <div class="card mb-4">
                     <div class="card-header pb-0">
-                      <h6>SupportPlan table</h6>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                       <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0">
+                        <table class="table">
                           <thead>
-                            <tr>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Client Name</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Communication Skills</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Friendships and Personal Relationships</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mobility Dexterity</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Routines And Personal Care</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Needs</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Emotions</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Daily Driving Skills</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">General Health Skills</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Medication Support</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Recreation And Relations</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nutrition</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Psychological Support</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Finance</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Staff Email</th>
-                               </tr>
+                              <tr>
+                                  <th>Staff Name</th>
+                                  <th>Patient Name</th>
+                                  <th>Communication Skills</th>
+                                  <th>Friendships and Personal Relationships</th>
+                                  <th>Mobility Dexterity</th>
+                                  <th>Routines And Personal Care</th>
+                                  <th>Needs</th>
+                                  <th>Emotions</th>
+                                  <th>Daily Living Skills</th>
+                                  <th>General Health Needs</th>
+                                  <th>Medication Support</th>
+                                  <th>Recreation And Relations</th>
+                                  <th>Eating Drinking And Nutrition</th>
+                                  <th>Psychological Support</th>
+                                  <th>Finance</th>
+                                  <th>Staff Email</th>
+                                  <!-- Add more table headers for the other fields --> 
+                              </tr>
                           </thead>
                           <tbody>
-                                 @foreach ($support_plans as $supportPlan)
+                              @foreach ($supportPlans as $supportPlan)
                                   <tr>
-
+                                      <td>{{ $supportPlan->username }}</td>
                                       <td>{{ $supportPlan->patient_name }}</td>
                                       <td>{{ $supportPlan->comm_skills }}</td>
                                       <td>{{ $supportPlan->friend_fam }}</td>
@@ -66,11 +67,11 @@
                                       <td>{{ $supportPlan->psychological_support}}</td>
                                       <td>{{ $supportPlan->finance}}</td>
                                       <td>{{ $supportPlan->staff_email}}</td>
-                                    
                                   </tr>
                               @endforeach
                           </tbody>
-                        </table>
+                      </table>
+                    
                       </div>
                     </div>
                   </div>

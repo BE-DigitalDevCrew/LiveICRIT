@@ -13,7 +13,7 @@ class StaffSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\User::create([
+          \App\Models\User::create([
             'username' => 'Staff',
             'email' => 'staff@icrit.com',
             'type' =>'Staff',
@@ -26,7 +26,7 @@ class StaffSeeder extends Seeder
 
         \App\Models\User::create([
             'username' => 'Staff',
-            'email' => 'nigel@icrit.com',
+            'email' => 'nigel.z@b-e.digital',
             'type' =>'Staff',
             'house_name' => 'Hearten',
             'email_verified_at' => now(),
@@ -38,7 +38,7 @@ class StaffSeeder extends Seeder
 
         \App\Models\User::create([
             'username' => 'Staff',
-            'email' => 'munashe@icrit.com',
+            'email' => 'munashe.c@b-e.digital',
             'type' =>'Staff',
             'house_name' => 'Oakdale',
             'email_verified_at' => now(),
@@ -49,7 +49,7 @@ class StaffSeeder extends Seeder
 
         \App\Models\User::create([
             'username' => 'Staff',
-            'email' => 'wadzi@icrit.com',
+            'email' => 'itai.c@b-e.digital',
             'type' =>'Staff',
             'house_name' => 'Wyresdale',
             'email_verified_at' => now(),

@@ -1,4 +1,4 @@
-@extends('layouts.stafflayout')
+@extends('layouts.adminlayout')
 @section('content')
 <div class="main-content position-relative max-height-vh-100 h-100">
   <!-- Navbar -->
@@ -14,29 +14,27 @@
           <div class="card-header pb-0">
             <div class="d-flex align-items-center">
              
-            
+              <a href="{{route('admin.addclient')}}" class="btn btn-primary btn-sm ms-auto">Add Client</a>
             </div>
           </div>
           <div class="card-body">
-            <p class="text-uppercase text-sm">Daily Entry Information</p>
+            <p class="text-uppercase text-sm">Client Information</p>
             <div class="row">
                 <div class="col-12">
                   <div class="card mb-4">
                     <div class="card-header pb-0">
-                      <h6>Entries table</h6>
+                      <h6>Clients table</h6>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                       <div class="table-responsive p-0">
                         <table class="table align-items-center mb-0">
                           <thead>
                             <tr>
-                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Patient Name</th>
-                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Shift</th>
-                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Activities</th>
-                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Appointments</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Medication Admin</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Incident</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Client Name</th>
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">DOB</th>
+                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID Number</th>
+                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Address</th>
+                               <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                               <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                               <th class="text-secondary opacity-7"></th>
                             </tr>
@@ -45,29 +43,28 @@
                           
                             @foreach($patients as $patient)
                             <tr>
-                           
                               <td>
-                                <p class="text-xs font-weight-bold mb-0">{{$patient->patient_name}}</p>
+                                <div class="d-flex px-2 py-1">
+                                  <div>
+                                    <img src="{{asset('assets/img/icritLogo.png')}}"  class="avatar avatar-sm me-3" alt="user1">
+                                  </div>
+                                  <div class="d-flex flex-column justify-content-center">
+                                    <h6 class="mb-0 text-sm">{{$patient->client_name}}</h6>
+                                  </div>
+                                </div>
+                              </td>
+                              <td>
+                                <p class="text-xs font-weight-bold mb-0">{{$patient->dob}}</p>
                                 
                               </td>
                               <td class="align-middle text-center text-sm">
-                                <span class="text-secondary text-xs font-weight-bold">{{$patient->shift}}</span>
+                                <span class="text-secondary text-xs font-weight-bold">{{$patient->id_number}}</span>
+                              </td>
+                               <td class="align-middle text-center text-sm">
+                                <span class="text-secondary text-xs font-weight-bold">{{$patient->address}}</span>
                               </td>
                               <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold">{{$patient->activities}}</span>
-                              </td>
-                             
-                              <td class="align-middle text-center text-sm">
-                                <span class="text-secondary text-xs font-weight-bold">{{$patient->medication_admin}}</span>
-                              </td>
-                              <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold">{{$patient->incident}}</span>
-                              </td>
-                              <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold">{{$patient->appointments}}</span>
-                              </td>
-                              <td>
-                                <p class="text-xs font-weight-bold mb-0">{{$patient->date}}</p> 
+                                <span class="badge badge-sm bg-gradient-success">Approved</span>
                               </td>
                               <td class="align-justified">
                                 <div class="row">

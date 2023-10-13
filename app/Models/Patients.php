@@ -15,13 +15,14 @@ class Patients extends Model
 
      */
     protected $fillable = [
-        'patient_name',
-        'email',
+        'client_name',
+        'surname',
+        'dob',
         'house_name',
         'address',
         'phone_number',
-        'user_id',
-        'staff_id',
+        'user_nat_id',
+        'prepared_by'
     ];
   
     /**

@@ -47,4 +47,84 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    
+       public function dailyEntries()
+    {
+        return $this->hasMany(DailyEntry::class);
+    }
+
+       
+    public function positiveBehaviourSupports()
+    {
+            return $this->hasMany(PositiveBehaviourSupportPlan::class);
+    }
+
+    public function patients()
+    {
+        return $this->hasMany(Patients::class, 'Staff_id'); // 'staff_id' should be the foreign key column name
+    }
+
+    public function patient()
+    {
+        return $this->belongsTo(Patients::class);
+    }
+    // A support plan also belongs to a user (the creator)
+   
+    public function supportPlans(){
+
+        return $this->hasMany(SupportPlans::class);
+    }
+
+    public function behaviouralCharts()
+    {
+        return $this->hasMany(BehaviouralMonitorCharts::class);
+    }
+    public function complaintsRecords()
+    {
+        return $this->hasMany(Complaints::class);
+    }
+
+    public function incidentReports()
+    {
+        return $this->hasMany(IncidentReports::class);
+    }
+
+    public function selfCertifications()
+    {
+        return $this->hasMany(SelfSertification::class);
+    }
+
+    public function hospitalPassports()
+    {
+        return $this->hasMany(HospitalPassport::class);
+    }
+
+    public function operationRiskAssessments()
+{
+    return $this->hasMany(OperationRiskAssessment::class);
+}
+    public function medicationIncidentReports()
+{
+    return $this->hasMany(MedicationIncident::class);
+}
+
+public function seizureReports()
+{
+    return $this->hasMany(SeizureReport::class);
+}
+
+public function fallsChecklists()
+{
+    return $this->hasMany(FallsCheklist::class);
+}
+
+public function witnessStatements()
+{
+    return $this->hasMany(WitnessStatements::class);
+}
+
+public function abcReports()
+{
+    return $this->hasMany(AbcReports::class);
+}
 }

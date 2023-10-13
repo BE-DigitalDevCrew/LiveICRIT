@@ -21,78 +21,48 @@
             <p class="text-uppercase text-sm">Daily Entry Information</p>
             <div class="row">
                 <div class="col-12">
-                  <div class="card mb-4">
-                    <div class="card-header pb-0">
-                      <h6>Entries table</h6>
-                    </div>
-                    <div class="card-body px-0 pt-0 pb-2">
-                      <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0">
-                          <thead>
-                            <tr>
-                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Patient Name</th>
-                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Shift</th>
-                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Activities</th>
-                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Appointments</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Medication Admin</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Incident</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
-                              <th class="text-secondary opacity-7"></th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                          
-                            @foreach($patients as $patient)
-                            <tr>
-                           
-                              <td>
-                                <p class="text-xs font-weight-bold mb-0">{{$patient->patient_name}}</p>
-                                
-                              </td>
-                              <td class="align-middle text-center text-sm">
-                                <span class="text-secondary text-xs font-weight-bold">{{$patient->shift}}</span>
-                              </td>
-                              <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold">{{$patient->activities}}</span>
-                              </td>
-                             
-                              <td class="align-middle text-center text-sm">
-                                <span class="text-secondary text-xs font-weight-bold">{{$patient->medication_admin}}</span>
-                              </td>
-                              <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold">{{$patient->incident}}</span>
-                              </td>
-                              <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold">{{$patient->appointments}}</span>
-                              </td>
-                              <td>
-                                <p class="text-xs font-weight-bold mb-0">{{$patient->date}}</p> 
-                              </td>
-                              <td class="align-justified">
-                                <div class="row">
-                                  <div class="col-md-6">
-                                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                                      <i class="fa fa-edit"></i> Edit
-                                    </a>
-                                  </div>
-                                  <div class="col-md-6">
-                                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                                      <i class="fa fa-trash"></i> Remove
-                                    </a>
-                                  </div>
-                                </div>
-                              </td>
-                            </tr>
-                            @endforeach
-
-                  
-                           
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
+                   <div class="card-body px-0 pt-0 pb-2">
+          <div class="table-responsive p-0">
+            <table class="table table-striped table-bordered" id = "DOMContentLoaded">
+              <thead class="thead-dark">
+                  <tr>
+                      <th>Staff Name</th>
+                      <th>House</th>
+                      <th>Patient Name</th>
+                      <th>Date</th>
+                      <th>Shift</th>
+                      <th>Personal Care</th>
+                      <th>Medication Admin</th>
+                      <th>Appointments</th>
+                      <th>Activities</th>
+                      <th>Incident</th>
+                      <th>Notes</th>
+                      <th>Print Record</td>
+                  </tr>
+              </thead>
+              <tbody>
+                  @foreach($entries as $entry)
+                      <tr>
+                          <td>{{ $entry->user_name }}</td>
+                          <td>{{ $entry->house }}</td>
+                          <td>{{ $entry->client_name }}</td>
+                          <td>{{ $entry->date }}</td>
+                          <td>{{ $entry->shift }}</td>
+                          <td>{{ $entry->personal_care }}</td>
+                          <td>{{ $entry->medication_admin }}</td>
+                          <td>{{ $entry->appointments }}</td>
+                          <td>{{ $entry->activities }}</td>
+                          <td>{{ $entry->incident }}</td>
+                          <td>{{ $entry->comments}}</td>
+                          <td>
+                            <a href="{{ route('staff.viewentryrecords', ['id' => $entry->id]) }}" class = "btn btn-dark">Export To Pdf</a>
+                        </td>              
+                      </tr>
+                  @endforeach
+              </tbody>
+          </table>
+          </div>
+        </div>
                 </div>
               </div>
          

@@ -31,7 +31,7 @@
                         <label for="patient_id">Patient</label>
                         <select name="patient_id"  class="form-control" required>
                             @foreach ($patients as $patient)
-                                <option value="{{ $patient->id }}">{{ $patient->patient_name }}</option>
+                                <option value="{{ $patient->id }}">{{ $patient->client_name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -88,8 +88,8 @@
                         <textarea type="text" rows="5" name="finance" class="form-control" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="date">Staff Email</label>
-                        <input type="email"  name="staff_email" class="form-control" required>
+                        <label for="staff_email">Staff Email</label>
+                        <input type="email"  name="staff_email" class="form-control" readonly value="{{$staff_email}}" required >
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Add Support Plan</button>

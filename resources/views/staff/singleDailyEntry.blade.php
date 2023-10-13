@@ -86,7 +86,7 @@ function generate() {
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <div class="container" style="margin-top:100px;">
 <button onclick="generatePDF()" class = "btn btn-info"><i class = "fa fa-print"></i>Generate PDF</button>
-<a href= "/dashboard"  class = "btn btn-info"><i class = "fa fa-print"></i>Dashboard</a>
+<a href= "{{route('staff.home')}}"  class = "btn btn-info"><i class = "fa fa-print"></i>Dashboard</a>
 <hr>
 <script>
     function generatePDF() {

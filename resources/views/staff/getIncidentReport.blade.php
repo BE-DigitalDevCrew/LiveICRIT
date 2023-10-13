@@ -21,14 +21,14 @@
             <p class="text-uppercase text-sm">Incidence Report Information</p>
             <hr>
             <div class="row">
-                <form method="POST" action="{{ route('staff.addincidencereport') }}">
+          <form method="POST" action="{{ route('staff.addincidencereport') }}">
     @csrf
     <div class="row">
         <div class="form-group">
             <label for="patient_id">Patient Name</label>
             <select name="patient_id" id="patient_id" class="form-control" required>
                 @foreach ($patients as $patient)
-                    <option value="{{ $patient->id }}">{{ $patient->patient_name }}</option>
+                    <option value="{{ $patient->id }}">{{ $patient->client_name }} {{ $patient->surname }}</option>
                 @endforeach
             </select>
         </div>
@@ -84,7 +84,7 @@
     </div>
     <div class="col-md-12">
         <label for="name_of_person">Name Of Person Completing Form</label>
-        <input type="text" name="name_of_person" id="name_of_person" class="form-control" required>
+        <input type="text" name="name_of_person" id="name_of_person" class="form-control" required value="{{$user}}" readonly>
     </div>
     <div class="col-md-12">
         <label for="date_completed">Date Completed</label>

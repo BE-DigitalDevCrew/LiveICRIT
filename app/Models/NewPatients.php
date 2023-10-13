@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class NewPatients extends Model
 {
     protected $fillable = [
-        'patient_name',
-        'email',
+        'client_name',
+        'dob',
         'house_name',
-        'staff_id',
-        'user_id',
+        'user_nat_id',
         'phone_number',
         'address',
+        'prepared_by'
     ];
 
  public function user()

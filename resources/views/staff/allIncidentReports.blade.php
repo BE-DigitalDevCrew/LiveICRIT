@@ -47,8 +47,24 @@
                             </tr>
                           </thead>
                           <tbody>
-                          
-                           
+                            @foreach($incident_reports as $entry)
+                            <tr>
+                              <td>{{ $entry->client_name }}</td>
+                              <td>{{ $entry->ref_number }}</td>
+                              <td>{{ $entry->location }}</td>
+                              <td>{{ $entry->date }}</td>
+                              <td>{{ $entry->time }}</td>
+                              <td>{{ $entry->person_affected }}</td>
+                              <td>{{ $entry->initials }}</td>
+                              <td>{{ $entry->description }}</td>
+                              <td>{{ $entry->identified_causes }}</td>
+                              <td>{{ $entry->completed_forms }}</td>
+                              <td>{{ $entry->name_of_person }}</td>
+                              <td>{{ $entry->date_completed }}</td>
+                              <td>{{ $entry->manager_on_call }}</td>
+                          </tr>
+                            @endforeach
+                      
                           </tbody>
                         </table>
                       </div>

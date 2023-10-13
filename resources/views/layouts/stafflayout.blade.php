@@ -35,6 +35,7 @@
 {{-- <link href=".{{asset('/css/nucleo-svg.css')}}" rel="stylesheet" />
   <!-- CSS Files --> --}}
   <link id="pagestyle" href="{{asset('assets/css/argon-dashboard.css?v=2.0.4')}}" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.css">
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
@@ -45,7 +46,7 @@
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="nav-link nav-profile d-flex align-items-center" href="{{route('staff.home')}}" data-bs-toggle="dropdown">
-        <img src="{{asset('img/icritLogo.png')}}" alt="Profile" class="rounded-circle" style="height: 50%; width: 40%; margin-left:25%;margin-top:25%" >
+        <img src="{{asset('assets/img/icritLogo.png')}}" alt="Profile" class="rounded-circle" style="height: 50%; width: 40%; margin-left:25%;margin-top:25%" >
       </a><!-- End Profile Iamge Icon -->
     </div>
     <br> <br>
@@ -58,14 +59,6 @@
               <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Home</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="{{route('staff.addpatient')}}">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-app text-info text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Add Patient</span>
           </a>
         </li>
         <li class="nav-item">
@@ -84,7 +77,7 @@
             <span class="nav-link-text ms-1">Add DailyEntry</span>
           </a>
         </li>
-        <li class="nav-item">
+         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.viewentryrecords')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-app text-info text-sm opacity-10"></i>
@@ -92,21 +85,38 @@
             <span class="nav-link-text ms-1">View EntryLists</span>
           </a>
         </li>
-       
-        <li class="nav-item">
-          <a class="nav-link " href="{{route('staff.addhospitalpassport')}}">
+           <li class="nav-item">
+          <a class="nav-link " href="{{route('staff.addsupportplan')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-app text-info text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Add HospitalPassport</span>
+            <span class="nav-link-text ms-1">Add SupportPlan</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="">
+          <a class="nav-link " href="{{route('staff.viewsupportplan')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-app text-info text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Hospital PassportList</span>
+            <span class="nav-link-text ms-1">View SupportPlans</span>
+          </a>
+        </li>
+       
+       
+        <li class="nav-item">
+          <a class="nav-link " href="{{route('staff.addabcreport')}}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-app text-info text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Add ABCReport</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{{route('staff.addabcreport')}}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-app text-info text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">View ABCReports</span>
           </a>
         </li>
         <li class="nav-item">
@@ -126,22 +136,6 @@
           </a>
         </li>
       
-        <li class="nav-item">
-          <a class="nav-link " href="{{route('staff.addsupportplan')}}">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-app text-info text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Add SupportPlan</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="{{route('staff.viewsupportplan')}}">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-app text-info text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">View SupportPlans</span>
-          </a>
-        </li>
         <li class="nav-item">
           <a class="nav-link " href="{{route('staff.addriskassessment')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -194,7 +188,7 @@
           <form method="POST" action="{{ route('logout') }}">
             @csrf
             <span style="margin-left:30%">
-              <button style="margin-left: 30%"  type="submit" class="btn btn-primary">Logout</button>
+              <button  type="submit" class="btn btn-primary">Logout</button>
             </span>
         </form>
         </li>
@@ -326,7 +320,6 @@
     </nav>
     <!-- End Navbar -->
    @yield('content')
-   
   </div>
 
   <!--   Core JS Files   -->
@@ -334,6 +327,9 @@
   <script src=" {{asset('assets/js/core/bootstrap.min.js ')}}"></script>
   <script src=" {{asset('assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
   <script src="{{asset('assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
+  <script language="JavaScript" src="https://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
+  <script language="JavaScript" src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js" type="text/javascript"></script>
+  <script language="JavaScript" src="https://cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.js" type="text/javascript"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -342,6 +338,14 @@
       }
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
+  </script>
+  <script>
+    $(document).ready(function() {
+      $('#datatable').dataTable();
+      
+       $("[data-toggle=tooltip]").tooltip();
+      
+  } );
   </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>

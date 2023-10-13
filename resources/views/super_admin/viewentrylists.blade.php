@@ -1,38 +1,114 @@
 @extends('layouts.adminlayout')
 @section('content')
-<div class="container-fluid py-4">
-  <div class="col-md-12 mt-4">
-    <div class="card">
-      <div class="card-header pb-0 px-3">
-        <h6 class="mb-0">DailyEntry Information</h6>
-      </div>
-      <div class="card-body pt-4 p-3">
-        <ul class="list-group">
-          <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-            <div class="d-flex flex-column">
-              <h6 class="mb-3 text-sm">Date</h6>
-              <h6 class="mb-3 text-sm">Shift</h6>
-
-              <h6 class="mb-3 text-sm">Patient</h6>
-              <h6 class="mb-3 text-sm">Patient Care</h6>
-              <h6 class="mb-3 text-sm">Activities</h6>
-              <h6 class="mb-3 text-sm">Appointments</h6>
-              <h6 class="mb-3 text-sm">Incident</h6>
-            </div>
-            <div class="ms-auto text-end">
-              <h6 class="mb-3 text-sm">07/09/23</h6>
-              <h6 class="mb-3 text-sm">Day</h6>
-
-              <h6 class="mb-3 text-sm">Charles</h6>
-              <h6 class="mb-3 text-sm">Day Care</h6>
-              <h6 class="mb-3 text-sm">Walking</h6>
-              <h6 class="mb-3 text-sm">Yes</h6>
-              <h6 class="mb-3 text-sm">None</h6>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
+<div class="main-content position-relative max-height-vh-100 h-100">
+  <!-- Navbar -->
+  <!-- End Navbar -->
+  <div class="card shadow-lg mx-4 card-profile-bottom">
   </div>
-</div>  
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header pb-0">
+            <div class="d-flex align-items-center">
+              <!--<a href="{{route('staff.addentryrecord')}}" class="btn btn-primary btn-sm ms-auto">Add DailyEntry</a>!-->
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="text-uppercase text-sm text-center">Daily Entry Information</p>
+            <div class="row">
+                <div class="col-12">
+                  <div class="card mb-4">
+                    <div class="card-header pb-0">
+                    </div>
+                    <div class="card-body px-0 pt-0 pb-2">
+                      <div class="table-responsive p-0">
+                        <table class="table table-bordered"  id = "dailyEntryTable">
+                          <thead>
+                              <tr>
+                                  <th>User</th>
+                                  <th>House</th>
+                                  <th>Patient Name</th>
+                                  <th>Date</th>
+                                  <th>Shift</th>
+                                  <th>Personal Care</th>
+                                  <th>Medication Admin</th>
+                                  <th>Appointments</th>
+                                  <th>Activities</th>
+                                  <th>Incident</th>
+                                  <th>View Record</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              @foreach($entries as $entry)
+                              <tr>
+                                  <td>{{ $entry->user_name }}</td>
+                                  <td>{{ $entry->house }}</td>
+                                  <td>{{ $entry->patient_name }}</td>
+                                  <td>{{ $entry->date }}</td>
+                                  <td>{{ $entry->shift }}</td>
+                                  <td>{{ $entry->personal_care }}</td>
+                                  <td>{{ $entry->medication_admin }}</td>
+                                  <td>{{ $entry->appointments }}</td>
+                                  <td>{{ $entry->activities }}</td>
+                                  <td>{{ $entry->incident }}</td>
+                                  </tr>
+                              @endforeach
+                              <nav aria-label="Page navigation">
+                                  <ul class="pagination justify-content-center">
+                                      {{-- Previous Page Link --}}
+                                      @if ($entries->onFirstPage())
+                                          <li class="page-item disabled">
+                                              <span class="page-link" style="padding:30px;">Previous</span>
+                                          </li>
+                                      @else
+                                          <li class="page-item">
+                                              <a class="page-link" href="{{ $entries->previousPageUrl() }}" rel="prev">Previous</a>
+                                          </li>
+                                      @endif
+                                      
+                                      {{-- Next Page Link --}}
+                                      @if ($entries->hasMorePages())
+                                          <li class="page-item">
+                                              <a class="page-link" style="padding:30px;" href="{{ $entries->nextPageUrl() }}" rel="next">Next</a>
+                                          </li>
+                                      @else
+                                          <li class="page-item disabled">
+                                              <span class="page-link">Next</span>
+                                          </li>
+                                      @endif
+                                  </ul>
+                              </nav>
+                          </tbody>
+                      </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+         
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <footer class="footer pt-3  ">
+      <div class="container-fluid">
+        <div class="row align-items-center justify-content-lg-between">
+          <div class="col-lg-6 mb-lg-0 mb-4">
+            <div class="copyright text-center text-sm text-muted text-lg-start">
+              © <script>
+                document.write(new Date().getFullYear())
+              </script>,
+              Powered <i class="fa fa-heart"></i> by
+              <a href="" class="font-weight-bold" target="_blank">Digital Evangelicals</a>
+             
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
 @endsection

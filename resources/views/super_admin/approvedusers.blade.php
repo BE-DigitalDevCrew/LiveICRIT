@@ -27,11 +27,6 @@
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                       <div class="table-responsive p-0">
-                        @if (session('message'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('message') }}
-                        </div>
-                        @endif
                         <table class="table align-items-center mb-0">
                           <thead>
                             <tr>
@@ -39,18 +34,18 @@
                               <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
                               <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">User Role</th>
                               <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">House</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date Approved</th>
                               <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                               <th class="text-secondary opacity-7"></th>
                             </tr>
                           </thead>
                           <tbody>
-                            @forelse($users as $user)
+                            @foreach($users as $user)
                             <tr>
                               <td>
                                 <div class="d-flex px-2 py-1">
                                   <div>
-                                    <img src="{{asset('img/team-2.jpg')}}" class="avatar avatar-sm me-3" alt="user1">
+                                    <img src="{{asset('assets/img/icritLogo.png')}}" class="avatar avatar-sm me-3" alt="user1">
                                   </div>
                                   <div class="d-flex flex-column justify-content-center">
                                     <h6 class="mb-0 text-sm">{{$user->username}}</h6>
@@ -59,15 +54,16 @@
                               </td>
                               <td>
                                 <p class="text-xs font-weight-bold mb-0">{{$user->email}}</p>
+                                
                               </td>
                               <td class="align-middle text-center text-sm">
                                 <span class="text-secondary text-xs font-weight-bold">{{$user->type}}</span>
                               </td>
                               <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold">{{$user->house}}</span>
+                                <span class="text-secondary text-xs font-weight-bold">{{$user->house_name}}</span>
                               </td>
-                              <td><a href="{{ route('admin.users.approve', $user->id) }}"
-                                class="btn btn-primary btn-sm">Approve</a>
+                              <td class="align-middle text-center">
+                                <span class="text-secondary text-xs font-weight-bold">{{$user->approved_at}}</span>
                               </td>
                               <td class="align-justified">
                                 <div class="row">
@@ -84,26 +80,20 @@
                                 </div>
                               </td>
                             </tr>
-                            @empty
-                            <tr>
-                                <td class="align-justified"  colspan="4">No users found.</td>
-                            </tr>
-                            @endforelse
+                            @endforeach
+                           
                           </tbody>
                         </table>
-                        @if (session('message'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('message') }}
-                        </div>
-                    @endif
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+         
           </div>
         </div>
       </div>
+      
     </div>
     <footer class="footer pt-3  ">
       <div class="container-fluid">

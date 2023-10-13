@@ -26,21 +26,21 @@
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
-  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="https://munanacreatives.co.zw/ICRIT/assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="https://munanacreatives.co.zw/ICRIT/assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="https://munanacreatives.co.zw/ICRIT/assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
-  <link id="pagestyle" href="../assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+  <link id="pagestyle" href="https://munanacreatives.co.zw/ICRIT/assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
 </head>
 
 <body class="">
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent mt-4">
     <div class="container">
-      <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="../pages/dashboard.html">
-        ICRIT
+      <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="{{route('login')}}">
+      <img src="{{asset('assets/img/icritLogo.png')}}">
       </a>
       <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon mt-2">
@@ -136,7 +136,7 @@
 
                   <div class="col-md-12">
                      <select class="form-control" name="type" id="type">
-                      <option value="Staff">Staff</option>
+                      <option value="Staff">Care Giver</option>
                      </select>
 
                       @error('type')
@@ -146,6 +146,21 @@
                       @enderror
                   </div>
               </div>
+              <div class="mb-3">
+                <label for="name" class="col-md-4 col-form-label text-md-left">{{ __('User Type') }}</label>
+                <div class="col-md-12">
+                  <select class="form-control" name="admin" id="admin">
+                   <option value="2">Staff</option>
+                  </select>
+
+                   @error('admin')
+                       <span class="invalid-feedback" role="alert">
+                           <strong>{{ $message }}</strong>
+                       </span>
+                   @enderror
+               </div>
+
+            </div>
                 <div class="mb-3">
                     <label for="password" class="col-md-4 col-form-label text-md-left">{{ __('Password') }}</label>
 
@@ -240,10 +255,10 @@
   </footer>
   <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
   <!--   Core JS Files   -->
-  <script src="../assets/js/core/popper.min.js"></script>
-  <script src="../assets/js/core/bootstrap.min.js"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="https://munanacreatives.co.zw/ICRIT/assets/js/core/popper.min.js"></script>
+  <script src="https://munanacreatives.co.zw/ICRIT/assets/js/core/bootstrap.min.js"></script>
+  <script src="https://munanacreatives.co.zw/ICRIT/assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="https://munanacreatives.co.zw/ICRIT/assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -256,7 +271,7 @@
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/argon-dashboard.min.js?v=2.0.4"></script>
+  <script src="https://munanacreatives.co.zw/ICRIT/assets/js/argon-dashboard.min.js?v=2.0.4"></script>
 </body>
 
 </html>

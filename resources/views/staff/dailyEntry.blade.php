@@ -25,6 +25,41 @@
                     @csrf
                     </div>
                     <div class="row">
+                      <div class="col-md-6">
+                        <label for="example-text-input" class="form-control-label">Client Name</label>
+                        <select class="form-control" name="patient_name" id="patient_name" class="form-control" required>
+                            @if ($patients)
+                            @foreach($patients as $user)
+                                <option value="{{ $user->client_name}} ">{{ $user->client_name}} {{ $user->surname}}  </option>
+                            @endforeach
+                        @endif
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="example-text-input" class="form-control-label">Client ID</label>
+                      <select class="form-control" name="patient_id" id="patient_id" class="form-control" required>
+                          @if ($patients)
+                          @foreach($patients as $user)
+                              <option value="{{ $user->id}} ">{{ $user->id}} ~ {{ $user->client_name}}  </option>
+                          @endforeach
+                      @endif
+                      </select>
+                  </div>
+               
+                 
+                    </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="appointments">Appointments</label>
+                      <select class="form-control" name="appointments" id="appointments" class="form-control" required>
+                          <option class="form-group" value="Yes">Yes</option>
+                          <option class="form-group" value="No">No</option>
+                      </select>
+                  </div>
+                  </div>
+                 
+                    <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                               <label for="example-text-input" class="form-control-label">Date</label>
@@ -45,43 +80,21 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="example-text-input" class="form-control-label">Patient Name</label>
-                            <select class="form-control" name="patient_name" id="patient_name" class="form-control" required>
-                                @if ($patients)
-                                @foreach($patients as $user)
-                                    <option value="{{ $user->patient_name}} ">{{ $user->patient_name}} </option>
-                                @endforeach
-                            @endif
-                            </select>
-                        </div>
-                        <div class="col-md-6">
                             <label for="example-text-input" class="form-control-label">Personal Care</label>
                             <select class="form-control" name="personal_care" id="personal_care" class="form-control" required>
                                 <option class="form-group" value="Yes">Yes</option>
                                 <option class="form-group" value="No">No</option>
                             </select>
                         </div>
-                    </div>
-                   
-                    <div class="row">
-                        
-    
                         <div class="col-md-6">
-                            <label for="medication_admin">Medication Admin</label>
-                            <select class="form-control" name="medication_admin" id="medication_admin" class="form-control" required>
-                                <option class="form-group" value="Yes">Yes</option>
-                                <option class="form-group" value="No">No</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="appointments">Appointments</label>
-                            <select class="form-control" name="appointments" id="appointments" class="form-control" required>
-                                <option class="form-group" value="Yes">Yes</option>
-                                <option class="form-group" value="No">No</option>
-                            </select>
-                        </div>
-
+                          <label for="medication_admin">Medication Admin</label>
+                          <select class="form-control" name="medication_admin" id="medication_admin" class="form-control" required>
+                              <option class="form-group" value="Yes">Yes</option>
+                              <option class="form-group" value="No">No</option>
+                          </select>
+                      </div>
                     </div>
+            
                     <div class="row">
                        
                         <div class="col-md-6">
@@ -99,9 +112,14 @@
                             </select>
                         </div>
                     </div>
+                    <br>
                     <div class="row">
-                      
+                        <div class="col-md-6">
+                            <label for="incident">Additional Comments</label>
+                            <textarea class="form-control" name="comments" id="comments" rows="8" cols="80" maxlength="5000"></textarea>
+                        </div>
                     </div>
+                    <br>
                     <hr>
                     <button type="submit" class="btn btn-primary btn-sm ms-auto">Add Record</button>
                 </form>

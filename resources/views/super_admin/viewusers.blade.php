@@ -49,9 +49,7 @@
                             <tr>
                               <td>
                                 <div class="d-flex px-2 py-1">
-                                  <div>
-                                    <img src="{{asset('img/team-2.jpg')}}" class="avatar avatar-sm me-3" alt="user1">
-                                  </div>
+                                  
                                   <div class="d-flex flex-column justify-content-center">
                                     <h6 class="mb-0 text-sm">{{$user->username}}</h6>
                                   </div>
@@ -66,7 +64,9 @@
                               <td class="align-middle text-center">
                                 <span class="text-secondary text-xs font-weight-bold">{{$user->house_name}}</span>
                               </td>
-                             
+                              <td><a href="{{ route('admin.users.approve', $user->id) }}"
+                                class="btn btn-primary btn-sm">Approve</a>
+                              </td>
                               <td class="align-justified">
                                 <div class="row">
                                   <div class="col-md-6">

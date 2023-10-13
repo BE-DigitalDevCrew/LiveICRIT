@@ -12,15 +12,16 @@
                 <br><br>
                 <h1 class="font-weight-bolder" style="margin-left: 5%">ICRIT</h1>
                 <p class="mb-1 pt-2 text-bold" style="margin-left: 5%"> <strong> Welcome , <span> {{ Auth::user()->username }}</span> </strong> </p>
-                <p class="mb-1 pt-2 text-bold" style="margin-left: 5%"> <strong> Your house is , <span> {{ Auth::user()->house_name }}</span> </strong> </p> 
-              
+                <p class="mb-1 pt-2 text-bold" style="margin-left: 5%"> <strong> Your House is <span> {{ Auth::user()->house_name }}</span> </strong> </p>
+                <a class="text-dark font-weight-bold ps-1 mb-0 icon-move-left mt-auto" href="javascript:;">
+                </a>
               </div>
             </div>
             <div class="col-lg-4 me-auto ms-0 text-center">
               <div class="bg-gradient-primary border-radius-lg min-height-200">
-                <img src="../../img/shapes/waves-white.svg" class="position-absolute h-100 top-0 d-md-block d-none" alt="waves">
+                <img src=" {{asset('assets/img/shapes/waves-white.svg')}}" class="position-absolute h-100 top-0 d-md-block d-none" alt="waves">
                 <div class="position-relative pt-5 pb-4">
-                  <img class="max-width-500 w-100 position-relative z-index-2" src="{{asset('img/icritLogo.png')}}" 
+                  <img class="max-width-500 w-100 position-relative z-index-2" src="{{asset('assets/img/icritLogo.png')}}" 
                   style="height: 20%;width:20%; margin-left: 45%">
                 </div>
               </div>
@@ -40,7 +41,7 @@
               <div class="numbers">
                 <p class="text-sm mb-0 text-uppercase font-weight-bold">DAILY ENTRIES</p>
                 <h5 class="font-weight-bolder">
-                  10
+                  {{$totalEntriesCount}}
                 </h5>
                 <p class="mb-0">
                   <span class="text-warning text-sm font-weight-bolder"> Available <br> entries</span>
@@ -211,16 +212,16 @@
               <div class="numbers">
                 <p class="text-sm mb-0 text-uppercase font-weight-bold">PATIENTS</p>
                 <h5 class="font-weight-bolder">
-                  9
+                  5
                 </h5>
                 <p class="mb-0">
-                  <span class="text-warning text-sm font-weight-bolder"> Available <br> patients</span>
+                  <span class="text-warning text-sm font-weight-bolder"> <a href="{{route('staff.viewpatients')}}"> Available <br> patients </a></span>
                 </p>
               </div>
             </div>
             <div class="col-4 text-end">
               <div class="icon icon-shape bg-gradient-warning shadow-success text-center rounded-circle">
-                <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                <i class="ni ni-paper-diploma text-lg opacitya-10" aria-hidden="true"></i>
               </div>
             </div>
           </div>
@@ -233,80 +234,49 @@
     <div class="col-12">
       <div class="card mb-4">
         <div class="card-header pb-0">
-          <h4 style="margin-left: 40%">Daily Entries Table</h4>
+          <h4 style="margin-left: 40%">My Daily Entries</h4>
+          <a href="{{route('staff.viewentryrecords')}}" class="btn btn-dark">View All Daily Entries</a>
         </div>
         <div class="card-body px-0 pt-0 pb-2">
           <div class="table-responsive p-0">
-            <table class="table align-items-center mb-0">
-              <thead>
-                <tr>
-                    
-                   
-                    <th>Patient Name</th>
-                    <th>Activities</th>
-                    <th>Medication Admin</th>
-                    <th>Incident</th>
-                    <th>Appointment</th>
-                    <th>Personal Care</th>
-                    <th>Date</th>
-                   
-                   
-                 
-                   
-                    <th>Incident</th>
-                    <th>Action</td>
-                  <th class="text-secondary opacity-7"></th>
-                </tr>
+            <table class="table table-striped table-bordered" id = "DOMContentLoaded">
+              <thead class="thead-dark">
+                  <tr>
+                      <th>Staff Name</th>
+                      <th>House</th>
+                      <th>Patient Name</th>
+                      <th>Date</th>
+                      <th>Shift</th>
+                      <th>Personal Care</th>
+                      <th>Medication Admin</th>
+                      <th>Appointments</th>
+                      <th>Activities</th>
+                      <th>Incident</th>
+                      <th>Notes</th>
+                      <th>Print Record</td>
+                  </tr>
               </thead>
               <tbody>
-                @foreach($entries as $patient)
-                <tr>
-               
-                  <td>
-                    <p class="text-xs font-weight-bold mb-0">{{$patient->patient_name}}</p>
-                    
-                  </td>
-                  <td class="align-middle text-center text-sm">
-                    <span class="text-secondary text-xs font-weight-bold">{{$patient->shift}}</span>
-                  </td>
-                  <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold">{{$patient->activities}}</span>
-                  </td>
-                 
-                  <td class="align-middle text-center text-sm">
-                    <span class="text-secondary text-xs font-weight-bold">{{$patient->medication_admin}}</span>
-                  </td>
-                  <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold">{{$patient->incident}}</span>
-                  </td>
-                  <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold">{{$patient->appointments}}</span>
-                  </td>
-                  <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold">{{$patient->personal}}</span>
-                  </td>
-                  <td>
-                    <p class="text-xs font-weight-bold mb-0">{{$patient->date}}</p> 
-                  </td>
-                  <td class="align-justified">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          <i class="fa fa-edit"></i> Edit
-                        </a>
-                      </div>
-                      <div class="col-md-6">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          <i class="fa fa-trash"></i> Remove
-                        </a>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                @endforeach
-
+                  @foreach($entries as $entry)
+                      <tr>
+                          <td>{{ $entry->user_name }}</td>
+                          <td>{{ $entry->house }}</td>
+                          <td>{{ $entry->client_name }}</td>
+                          <td>{{ $entry->date }}</td>
+                          <td>{{ $entry->shift }}</td>
+                          <td>{{ $entry->personal_care }}</td>
+                          <td>{{ $entry->medication_admin }}</td>
+                          <td>{{ $entry->appointments }}</td>
+                          <td>{{ $entry->activities }}</td>
+                          <td>{{ $entry->incident }}</td>
+                           <td>{{ $entry->comments}}</td>
+                          <td>
+                            <a href="{{ route('staff.view-record', ['id' => $entry->id]) }}" class = "btn btn-dark">Export To Pdf</a>
+                        </td>              
+                      </tr>
+                  @endforeach
               </tbody>
-            </table>
+          </table>
           </div>
         </div>
       </div>

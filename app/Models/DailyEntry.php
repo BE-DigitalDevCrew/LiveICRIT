@@ -16,14 +16,30 @@ class DailyEntry extends Model
     */
    protected $fillable = [
     'date',
-    'shift',
     'patient_name',
-    'personal_care' ,
+    'patient_id',
+    'staff_id',
+    'date',
+    'shift',
+    'personal_care',
     'medication_admin',
-    'activities' ,
-    'appointments' ,
+    'appointments',
+    'activities',
     'incident',
+    'comments',
+    'prepared_by',
    ];
+
+   public function user()
+   {
+       return $this->belongsTo(User::class);
+   }
+
+   //every daily entry belongs to a patient
+   public function patient()
+   {
+       return $this->belongsTo(Patient::class);
+   }
  
    /**
     * The attributes that should be hidden for serialization.
@@ -52,6 +68,5 @@ class DailyEntry extends Model
     * @param  string  $value
     * @return \Illuminate\Database\Eloquent\Casts\Attribute
     */
-   
 
 }

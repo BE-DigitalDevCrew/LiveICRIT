@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\JsonResponse;
-use DB;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+
 
 class HomeController extends Controller
 {
@@ -39,6 +41,7 @@ class HomeController extends Controller
         $total_houses = DB::table('houses')->count();
         $total_daily_entries = DB::table('daily_entries')->count();
         $total_patients = DB::table('patients')->count();
+        $total_support_plans = DB::table('support_plans')->count();
         // $total_carestaff = DB::table('jobs')->where('job_name', '=','CARE STAFF')->count();
         // $total_health_care_assistants = DB::table('jobs')->where('job_name', '=','HEALTH CARE ASSISTANTS')->count();
         // $total_therapists = DB::table('jobs')->where('job_name', '=','THERAPIST')->count();
@@ -47,15 +50,49 @@ class HomeController extends Controller
         // $total_midwives = DB::table('jobs')->where('job_name', '=','MIDWIVES')->count();
         // $total_categories = Categories::all()->count();
         $entries =  DailyEntry::all();
-        return view('super_admin.home',compact('entries','total_users','staff','total_staff','total_houses','total_daily_entries','total_patients'));
+        return view('super_admin.home',compact('entries','total_users','staff','total_staff','total_houses','total_daily_entries','total_patients','total_support_plans'));
 
     } 
 
-    public function staffHome(): View
-    {
-        $entries =  DailyEntry::all();
-        return view('staff.home',compact('entries'));
+    public function staffHome(): View{
+
+    $currentDate = Carbon::now('Europe/London')->format('d-m-Y');
+    //get the user id of the authenticated user
+    $userId = Auth::id();
+    //get the username of the authenticated house
+    $username = Auth::user()->username;
+    //dd($username);
+    //get the house of the authenticated user
+    $house = Auth::user()->house_name;
+    //get the number of patients in the house where the house is the house of the authenticatd user
+    $numberOfPatientsInHouse = DB::select("SELECT COUNT(id) FROM patients WHERE house_name = '$house'");
+    $entries = DailyEntry::leftJoin('patients', 'daily_entries.patient_id', '=', 'patients.id')
+    ->leftJoin('users', 'daily_entries.staff_id', '=', 'users.id')
+    ->where('users.id', $userId)
+    ->where('users.house_name',$house)
+    ->select(
+        'users.username as user_name',
+        'users.house_name as house',
+        'patients.client_name',
+        'daily_entries.id as entryId',
+        'daily_entries.date',
+        'daily_entries.personal_care',
+        'daily_entries.shift',
+        'daily_entries.id',
+        'daily_entries.medication_admin',
+        'daily_entries.activities',
+        'daily_entries.incident',
+        'daily_entries.appointments'
+    )
+    ->orderBy('daily_entries.id', 'desc')
+    ->paginate(5);  
+    $totalEntriesCount = $entries->total();
+     //$entries = DB::select($query, ['userId' => $userId]);
+     return view('staff.home', compact('entries','numberOfPatientsInHouse','totalEntriesCount'));
+   
+     
     }
+
 
     public function approval()
 {

@@ -103,6 +103,7 @@ class AuthController extends Controller
             'username' => 'required',
             'email' => 'required|email|unique:users',
             'type'  => 'required',
+            'admin' => 'required',
             'house_name' => 'required',
             'password' => 'required|min:6',
         ]);
@@ -119,7 +120,7 @@ class AuthController extends Controller
   
         Mail::send('mail.email_verification', ['token' => $token], function($message) use($request){
               $message->to($request->email);
-              $message->subject('Email Verification Mail');
+              $message->subject('Email Verification Request');
           });
          
         return redirect("login")->withSuccess('Great! You have Successfully registered');
@@ -151,6 +152,7 @@ class AuthController extends Controller
             'username' => $data['username'],
             'email' => $data['email'],
             'type' =>  $data['type'],
+            'admin' => $data['admin'],
             'house_name' =>  $data['house_name'],
             'password' => Hash::make($data['password']),
         ]);
