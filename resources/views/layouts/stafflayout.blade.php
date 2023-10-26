@@ -320,6 +320,7 @@
     </nav>
     <!-- End Navbar -->
    @yield('content')
+   @include('sweetalert::alert')
   </div>
 
   <!--   Core JS Files   -->
