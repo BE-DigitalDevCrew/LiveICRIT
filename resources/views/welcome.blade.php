@@ -75,13 +75,13 @@
         var video = document.getElementById("splash-video");
         video.addEventListener("ended", function () {
             document.querySelector(".splash-container").style.display = "none";
-            window.location.href = "https://munanacreatives.co.zw/ICRIT/login";
+            window.location.href = "{{route('login')}}";
         });
 
         // Automatically hide the splash screen after 11 seconds
         setTimeout(function () {
             document.querySelector(".splash-container").style.display = "none";
-            window.location.href = "https://munanacreatives.co.zw/ICRIT/login";
+            window.location.href = "{{route('login')}}";
         }, 5000); // 11,000 milliseconds = 11 seconds
     </script>
     
