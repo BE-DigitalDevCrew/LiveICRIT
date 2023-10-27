@@ -257,7 +257,7 @@
                     <th>Personal Care</th>
                     <th>Notes</th>
                     <th>Date</th>
-                   
+                    <th>Export to PDF</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -271,6 +271,7 @@
                     <td>{{$entry->personal_care}}</td>
                     <td>{{$entry->comments}}</td>
                     <td>{{$entry->date}}</td>
+                    <td><a class="btn btn-primary" href="{{ route('dailyentry.pdf') }}">Download PDF</a></td>
                   </tr>
                   @endforeach
                 </tbody>

@@ -14,6 +14,7 @@ use App\Models\IncidentReports;
 use Illuminate\Support\Facades\Validator;
 use Str;
 use Hash;
+use PDF;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -64,6 +65,40 @@ class UserController extends Controller
          ->orderBy('daily_entries.id', 'desc')
          ->paginate(5);
        return view('super_admin.viewentrylists',compact('entries'));
+    }
+
+    public function pdfview(Request $request)
+    {
+        $total_users = DB::table('users')->count();
+        $staff = DB::table('users')->where('type', '=','Staff');
+        $total_staff = DB::table('users')->where('type', '=','Staff')->count();
+        $total_houses = DB::table('houses')->count();
+        $total_daily_entries = DB::table('daily_entries')->count();
+        $total_patients = DB::table('patients')->count();
+        $total_support_plans = DB::table('support_plans')->count();
+        $entries = DailyEntry::
+           leftJoin('patients', 'daily_entries.patient_id', '=', 'patients.id')
+         ->leftJoin('users', 'daily_entries.user_id', '=', 'users.id')
+         ->select(
+             'users.username as user_name',
+             'users.house_name as house',
+             'patients.client_name',
+             'daily_entries.date',
+             'daily_entries.personal_care',
+             'daily_entries.shift',
+             'daily_entries.id',
+             'daily_entries.medication_admin',
+             'daily_entries.activities',
+             'daily_entries.incident',
+             'daily_entries.appointments',
+             'daily_entries.comments'
+         )
+         ->get();
+         view()->share('entries',$entries);
+         $pdf = PDF::loadView('super_admin.downloadpdf', compact('entries'));
+         // download PDF file with download method
+         return $pdf->download('DailyEntries.pdf');
+       
     }
 
     public function approveUser(){

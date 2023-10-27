@@ -31,7 +31,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('login', [AuthController::class, 'index'])->name('login'); 
 Route::post('postlogin', [AuthController::class, 'postLogin'])->name('loginpost'); 
 Route::get('register', [AuthController::class, 'registration'])->name('register');
-Route::post('registerpost', [AuthController::class, 'postRegistration'])->name('registerpost'); 
+Route::post('registerpost', [AuthController::class, 'postRegistration'])->name('registerpost');
+
   
 /* New Added Routes */
 Route::get('dashboard', [AuthController::class, 'dashboard'])->middleware(['auth', 'is_verify_email'])->name('dashboard'); 
@@ -41,11 +42,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
         Route::get('/approval', [HomeController::class,'approval'])->name('approval');
         Route::get('/home', [HomeController::class,'index'])->name('home');
+       
         Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout');
       
         Route::middleware(['admin'])->group(function () {
+        Route::get('/dailyentry/pdf',[UserController::class,'pdfview'])->name('dailyentry.pdf');
         //Users
-       Route::get('/admin/viewusers',[UserController::class,'viewUser'])->name('admin.viewusers');
+        Route::get('/admin/viewusers',[UserController::class,'viewUser'])->name('admin.viewusers');
         Route::get('/admin/approveusers',[UserController::class,'approveUser'])->name('admin.approveusers');
         Route::get('/admin/approvedusers',[UserController::class,'approvedUsers'])->name('admin.approvedusers');
         Route::get('/admin/addusers',[UserController::class,'addUser'])->name('admin.addusers');
@@ -73,6 +76,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/staff/home', [HomeController::class, 'staffHome'])->name('staff.home');
         Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout');
         Route::get('/staff/viewusers', [SuperAdminController::class, 'viewStaff'])->name('staff.viewusers');
+        Route::get('pdfview',array('as'=>'pdfview','uses'=>'UserController@pdfview'));
         //ManageStaffPatients
         Route::get('/staff/addpatient', [UserController::class, 'addPatient'])->name('staff.addpatient');
         Route::get('/staff/viewpatients', [UserController::class, 'viewPatients'])->name('staff.viewpatients');

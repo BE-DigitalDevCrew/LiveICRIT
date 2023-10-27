@@ -271,7 +271,7 @@
                           <td>{{ $entry->incident }}</td>
                            <td>{{ $entry->comments}}</td>
                           <td>
-                            <a href="{{ route('staff.view-record', ['id' => $entry->id]) }}" class = "btn btn-dark">Export To Pdf</a>
+                            <a href="{{ route('pdfview',['download'=>'pdf']) }}" class = "btn btn-dark">Export To Pdf</a>
                         </td>              
                       </tr>
                   @endforeach
