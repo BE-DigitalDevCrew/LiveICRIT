@@ -73,6 +73,7 @@ Route::middleware(['auth'])->group(function () {
          Route::get('/admin/viewsupportplan', [UserController::class, 'viewAdminSupportPlan'])->name('admin.viewsupportplan');
     });
     Route::middleware(['auth', 'user-access:staff'])->group(function () {
+        Route::get('/dailyentry/pdf',[UserController::class,'pdfview'])->name('dailyentry.pdf');
         Route::get('/staff/home', [HomeController::class, 'staffHome'])->name('staff.home');
         Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout');
         Route::get('/staff/viewusers', [SuperAdminController::class, 'viewStaff'])->name('staff.viewusers');

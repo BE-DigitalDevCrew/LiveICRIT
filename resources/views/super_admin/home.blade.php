@@ -257,11 +257,19 @@
                     <th>Personal Care</th>
                     <th>Notes</th>
                     <th>Date</th>
+                    <th>Time</th>
                     <th>Export to PDF</th>
                   </tr>
                 </thead>
                 <tbody>
                   @forelse($entries as $entry)
+                  @php
+                  $input  = $entry->created_at;
+                  $format1 = 'Y-m-d';
+                  $format2 = 'H:i:s';
+                  $date = Carbon\Carbon::parse($input)->format($format1);
+                  $time = Carbon\Carbon::parse($input)->format($format2);
+               @endphp
                   <tr>
                     <td>{{$entry->patient_name}}</td>
                     <td>{{$entry->shift}}</td>
@@ -270,8 +278,9 @@
                     <td>{{$entry->appointments}}</td>
                     <td>{{$entry->personal_care}}</td>
                     <td>{{$entry->comments}}</td>
-                    <td>{{$entry->date}}</td>
-                    <td><a class="btn btn-primary" href="{{ route('dailyentry.pdf') }}">Download PDF</a></td>
+                    <td>{{$date}}</td>
+                    <td>{{$time}}</td>
+                    <td><a class="btn btn-primary" href="{{ route('dailyentry.pdf') }}">Download Record</a></td>
                   </tr>
                   @endforeach
                 </tbody>

@@ -246,6 +246,7 @@
                       <th>House</th>
                       <th>Patient Name</th>
                       <th>Date</th>
+                      <th>Time</th>
                       <th>Shift</th>
                       <th>Personal Care</th>
                       <th>Medication Admin</th>
@@ -258,11 +259,19 @@
               </thead>
               <tbody>
                   @foreach($entries as $entry)
+                  @php
+                  $input  = $entry->created_at;
+                  $format1 = 'Y-m-d';
+                  $format2 = 'H:i:s';
+                  $date = Carbon\Carbon::parse($input)->format($format1);
+                  $time = Carbon\Carbon::parse($input)->format($format2);
+               @endphp
                       <tr>
                           <td>{{ $entry->user_name }}</td>
                           <td>{{ $entry->house }}</td>
                           <td>{{ $entry->client_name }}</td>
-                          <td>{{ $entry->date }}</td>
+                          <td>{{ $date }}</td>
+                          <td>{{ $time }}</td>
                           <td>{{ $entry->shift }}</td>
                           <td>{{ $entry->personal_care }}</td>
                           <td>{{ $entry->medication_admin }}</td>
@@ -270,9 +279,8 @@
                           <td>{{ $entry->activities }}</td>
                           <td>{{ $entry->incident }}</td>
                            <td>{{ $entry->comments}}</td>
-                          <td>
-                            <a href="{{ route('pdfview',['download'=>'pdf']) }}" class = "btn btn-dark">Export To Pdf</a>
-                        </td>              
+                          <td><a class="btn btn-primary" href="{{ route('dailyentry.pdf') }}">Download Record</a></td>
+                                    
                       </tr>
                   @endforeach
               </tbody>
